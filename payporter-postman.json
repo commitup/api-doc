@@ -1,0 +1,1836 @@
+{
+	"info": {
+		"_postman_id": "96098141-b474-4d9b-a46c-4767e1c11985",
+		"name": "PayPorter Api v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "moneypayment/search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"externalFirmCode\": 2,\n    \"externalFirmReferenceNo\": \"00275640117\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneypayment/search",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneypayment",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moneypayment/getdetail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneypayment/getdetail?pProcessReferenceNo=47000580982&zaasdasd=12-12-2023",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneypayment",
+								"getdetail"
+							],
+							"query": [
+								{
+									"key": "pProcessReferenceNo",
+									"value": "47000580982"
+								},
+								{
+									"key": "zaasdasd",
+									"value": "12-12-2023"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moneypayment/confirm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							},
+							{
+								"key": "operation-id",
+								"value": "{{operation-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneypayment/confirm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneypayment",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moneypayment/validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"receiver\": {\n        \"firstName\": \"guzın\",\n        \"middleName\": \"\",\n        \"lastName\": \"sargun\",\n        \"fatherName\": \"Veli\",\n        \"birthDateStr\": \"01.01.1981\",\n        \"nationalCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"identityTypeId\": 1,\n        \"identityIssueDateStr\": \"01.01.1981\",\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"identityNumber\": \"testpas1234\",\n        \"addressCountryCode\": \"TUR\",\n        \"provinceName\": \"osmaniye\",\n        \"districtName\": \"düziçi\",\n        \"address\": \"taşdelen\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileOperatorNo\": 505,\n        \"mobileNo\": 8725909,\n        \"customerId\": null,\n        \"ssnId\": \"16295979334\"\n    },\n    \"searchUUID\": \"bfab790a-f51c-4e80-9c15-8175822c7973\",\n    \"agentTxnRefNo\": null,\n    \"transactionAmount\": 100.00,\n    \"transactionAmountCurrency\": \"USD\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneypayment/validate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneypayment",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "oauth-login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"access_token\", jsonData.responseObject[\"access_token\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "<client_pass>",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "<your_client>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "testpay",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/oauth-login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"oauth-login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Commons",
+			"item": [
+				{
+					"name": "currency-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/currency-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"currency-list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "currency-list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneytransfercommon/currency-list",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneytransfercommon",
+										"currency-list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.29.0"
+								},
+								{
+									"key": "X-Forwarded-For",
+									"value": "10.212.135.12"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Auth-Token",
+									"value": "5f14d6a0-b062-41bb-978e-60b116dab264"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "621"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Dec 2022 15:29:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": [\n        {\n            \"code\": 1,\n            \"name\": \"TURK LİRASI\",\n            \"isoCode\": \"TRY\"\n        },\n        {\n            \"code\": 2,\n            \"name\": \"DOLAR\",\n            \"isoCode\": \"USD\"\n        },\n        {\n            \"code\": 3,\n            \"name\": \"EURO\",\n            \"isoCode\": \"EUR\"\n        },\n        {\n            \"code\": 4,\n            \"name\": \"STERLIN\",\n            \"isoCode\": \"GBP\"\n        },\n        {\n            \"code\": 5,\n            \"name\": \"ISVICRE F.\",\n            \"isoCode\": \"CHF\"\n        },\n        {\n            \"code\": 6,\n            \"name\": \"AVUSTRALYA DOLARI\",\n            \"isoCode\": \"AUD\"\n        },\n        {\n            \"code\": 7,\n            \"name\": \"KANADA DOLARI\",\n            \"isoCode\": \"CAD\"\n        },\n        {\n            \"code\": 8,\n            \"name\": \"BAE DIRHEMI\",\n            \"isoCode\": \"AED\"\n        },\n        {\n            \"code\": 9,\n            \"name\": \"CIN YUANI\",\n            \"isoCode\": \"CNH\"\n        },\n        {\n            \"code\": 10,\n            \"name\": \"RUS RUBLESI\",\n            \"isoCode\": \"RUB\"\n        },\n        {\n            \"code\": 11,\n            \"name\": \"GUNEY AFRIKA RANDI\",\n            \"isoCode\": \"ZAR\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "available-country-list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"currency\": \"USD\",\n  \"process\": \"TRANSFER\",\n  \"transferType\": \"TRANSFER_TO_NAME\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/avaliable-country-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"avaliable-country-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel-reason-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/cancel-reason-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"cancel-reason-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "city-list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"countryCode\": \"DEU\",\n    \"externalFirmCode\": 11\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/city-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"city-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "country-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/country-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"country-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "error-code-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/error-code-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"error-code-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "identity-type-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/identity-type-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"identity-type-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payment-external-firm-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/money-payment-external-firm-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"money-payment-external-firm-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send-external-firm-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/money-send-external-firm-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"money-send-external-firm-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "office-list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cityId\": 53447,\n  \"externalFirmCode\": 28\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/office-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"office-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "money-send-firm-list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transferType\": \"WALLET\",\n    \"countryCode\": \"TZA\",\n    \"currency\": \"USD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/money-send-firm-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"money-send-firm-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "purpose-info-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/purpose-info-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"purpose-info-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "source-of-income-info-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/source-of-income-info-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"source-of-income-info-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "work-condition-currency-list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"countryCode\": \"DEU\",\n  \"externalFirmCode\": 11,\n  \"transferType\": \"TRANSFER_TO_ACCOUNT\",\n  \"process\": \"TRANSFER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.215.16.46:8586/mt-api/V2/moneytransfercommon/work-condition-currency-list",
+							"protocol": "http",
+							"host": [
+								"10",
+								"215",
+								"16",
+								"46"
+							],
+							"port": "8586",
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"work-condition-currency-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "relationship with sender",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/bank-info-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"bank-info-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bank-info-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/bank-info-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"bank-info-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wallet-info-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/wallet-info-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"wallet-info-list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transfer",
+			"item": [
+				{
+					"name": "to-name-validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"apiAgentTxnRefNo\": \"ABC123\",\n    \"comment\": \"deneme commenti\",\n    \"currency\": \"EUR\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 8847659,\n    \"toCityId\": 23394,\n    \"toOfficeId\":211046,\n    \"toCountryCode\": \"DEU\",\n    \"toExternalFirmCode\": 11,\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"John Smith\",\n        \"firstName\": \"Jane\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1,\n        \"lastName\": \"Smith\",\n        \"middleName\": \"Doe\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    },\n    \"sender\": {\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"districtName\": \"Los Angeles\",\n        \"fatherName\": \"John Doe\",\n        \"firstName\": \"John\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2005\",\n        \"identityNumber\": \"0987654321\",\n        \"identityTypeId\": 2,\n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"jobCode\": 1,\n        \"lastName\": \"Doe\",\n        \"middleName\": \"\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 987653210,\n        \"mobileOperatorNo\": 532,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"California\",\n        \"ssnId\": \"13557545842\"\n    }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneysend/to-name/validate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneysend",
+								"to-name",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "to-account-validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"toCountryCode\": \"LTU\",\n    \"amount\": 50,\n    \"currency\": \"EUR\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 2,\n    \"apiAgentTxnRefNo\": \"1112Uzcard\",\n    \"toBankId\": \"4685419\",\n    \"toAccountNumber\": \"LT757044000553612962\",\n    \"comment\": \"deneme commenti\",\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"John Smith\",\n        \"firstName\": \"Jane\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1234,\n        \"lastName\": \"Smith\",\n        \"middleName\": \"Doe\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    },\n    \"relationshipWithSender\": \"Family\",\n    \"sender\": {\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"districtName\": \"Los Angeles\",\n        \"fatherName\": \"John Doe\",\n        \"firstName\": \"John\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2005\",\n        \"identityNumber\": \"0987654321\",\n        \"identityTypeId\": 2,\n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"jobCode\": 4321,\n        \"lastName\": \"Doe\",\n        \"middleName\": \"\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 987653210,\n        \"mobileOperatorNo\": 532,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"California\",\n        \"ssnId\": \"13557545842\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneysend/to-account/validate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneysend",
+								"to-account",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "to-wallet-validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 13,\n    \"apiAgentTxnRefNo\": \"4758575845\",\n    \"comment\": \"deneme commenti\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 8847659,\n    \"toWalletId\": \"KUIKPARA\",\n    \"currency\": \"USD\",\n    \"relationshipWithSender\": \"Family\",\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"John Smith\",\n        \"firstName\": \"Osman\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1234,\n        \"lastName\": \"SAVCI\",\n        \"middleName\": \"\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 2776269,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    },\n    \"sender\": {\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"districtName\": \"Los Angeles\",\n        \"fatherName\": \"John Doe\",\n        \"firstName\": \"John\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2005\",\n        \"identityNumber\": \"0987654321\",\n        \"identityTypeId\": 2,\n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"jobCode\": 4321,\n        \"lastName\": \"Doe\",\n        \"middleName\": \"\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 987653210,\n        \"mobileOperatorNo\": 532,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"California\",\n        \"ssnId\": \"13557545842\"\n    }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneysend/to-wallet/validate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneysend",
+								"to-wallet",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transfer-confirm",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "operation-id",
+								"value": "{{operation-id}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "0015",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneysend/confirm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneysend",
+								"confirm"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "transfer-confirm",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "operation-id",
+										"value": "{{operation-id}}",
+										"type": "text"
+									},
+									{
+										"key": "externalfirm-user-code",
+										"value": "001",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneysend/confirm",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneysend",
+										"confirm"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "operation-id",
+									"value": "812255c2-298e-4cd9-a284-59e754d85962"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.29.0"
+								},
+								{
+									"key": "X-Forwarded-For",
+									"value": "10.212.135.10"
+								},
+								{
+									"key": "screen-id",
+									"value": "moneyTransfer.transfer"
+								},
+								{
+									"key": "operation-type",
+									"value": "EXECUTE"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Auth-Token",
+									"value": "a013b075-d1f3-47fa-a5cf-07e385cb7089"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "383"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Dec 2022 06:15:50 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"apiAgentTxnRefNo\": null,\n        \"processReferenceNo\": 47000592358,\n        \"externalFirmReferenceNo\": \"3001949\",\n        \"externalFirmReferenceNo2\": null,\n        \"sendArId\": 1296805,\n        \"sendArRefNo\": 1,\n        \"sendArDate\": \"2022-12-20T00:00:00.000+0300\",\n        \"sendArBranchCode\": 2,\n        \"sendArRefCode\": \"GO\",\n        \"accountingFullRefNo\": \"20.12.2022-2-GO-1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update-receiver-info-validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processReferenceNo\": 47000580982,\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"Alp\",\n        \"firstName\": \"Ali\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1234,\n        \"lastName\": \"DENEME\",\n        \"middleName\": \"API\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/transferupdate/validate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"transferupdate",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-receiver-info-confirm",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "operation-id",
+								"value": "{{operation-id}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/transferupdate/confirm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"transferupdate",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel-transfer-validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cancellationReasonDescription\": \"canceldeneme\",\n  \"cancellationReasonId\": 3,\n  \"processReferenceNo\": 47000530888\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/transfercancel/validate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"transfercancel",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel-transfer-confirm",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "operation-id",
+								"value": "{{operation-id}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/transfercancel/confirm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"transfercancel",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-transfer-detail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneysend/getdetail?processReferenceNo=47000530888",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneysend",
+								"getdetail"
+							],
+							"query": [
+								{
+									"key": "processReferenceNo",
+									"value": "47000530888"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fee-amount-calculate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 100,\n  \"currency\": \"USD\",\n  \"toCountryCode\": \"PAK\",\n  \"toExternalFirmCode\": 28\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneysend/feecalculate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneysend",
+								"feecalculate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EFT Copy",
+			"item": [
+				{
+					"name": "create transfer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 50.23,\n    \"comment\": \"string\",\n    \"currency\": \"TRY\",\n    \"receiverAccount\": \"4159563782536493\",\n    \"senderExtFirmRefId\": \"AB3566123522\",\n    \"transferDate\": \"2023-05-13\",\n    \"transferReason\": \"COMMERCIAL_PAYMENTS\",\n    \"transferType\": \"TO_CREDIT_CARD\",\n    \"receiverInfo\": {\n        \"firstName\": \"tetsasdasdasdasdasdasdasdas\",\n        \"lastName\": \"\"\n    },\n    \"senderInfo\": {\n        \"birthDay\": \"1995-07-18\",\n        \"birthPlace\": \"test\",\n        \"middleName\": \"fsefe\",\n        \"firstName\": \"tetsset\",\n        \"lastName\": \"ewaea\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/transfer/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"transfer",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check-status-by-ext-firm-id Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/transfer/check-status-by-ext-firm-id/{extFirmRefId}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"transfer",
+								"check-status-by-ext-firm-id",
+								"{extFirmRefId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check-status-by-transfer-order-ref Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/transfer/check-status-by-transfer-order-ref/{transferOrderRefId}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"transfer",
+								"check-status-by-transfer-order-ref",
+								"{transferOrderRefId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "canceltransferOrderRefId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/transfer/cancel?transferOrderRefId=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"transfer",
+								"cancel"
+							],
+							"query": [
+								{
+									"key": "transferOrderRefId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-transfer-list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"endDate\": \"2023-04-03T06:26:10.274Z\",\n  \"startDate\": \"2023-05-06T06:26:10.274Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/transfer/get-transfer-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"transfer",
+								"get-transfer-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-refund-transfer-list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"endDate\": \"2019-07-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/transfer/get-refund-transfer-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"transfer",
+								"get-refund-transfer-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info/get-all-bank",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"body\": {\n    \"responseObject\": {\n      \"bankList\": [\n        {\n          \"bankCode\": 0,\n          \"bankName\": \"string\"\n        }\n      ]\n    },\n    \"restHeader\": {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"success\": true\n    }\n  },\n  \"statusCode\": \"100 CONTINUE\",\n  \"statusCodeValue\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/info/get-all-bank",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"info",
+								"get-all-bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-account-info",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"endDate\": \"2019-07-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/account/get-account-info",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"account",
+								"get-account-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-account-transactions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\nRequest body example:\n{\n  \"accountNo\": \"string\",\n  \"endDate\": \"2019-07-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\",\n  \"suffixNo\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/account/get-account-transactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"account",
+								"get-account-transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account/get-balance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"accountNo\": \"string\",\n  \"endDate\": \"2019-07-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\",\n  \"suffixNo\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/account/get-balance",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"account",
+								"get-balance"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://online-mig.payporter.com.tr:8586/online"
+		},
+		{
+			"key": "access_token",
+			"value": "null"
+		},
+		{
+			"key": "operation-id",
+			"value": "op-id"
+		}
+	]
+}
