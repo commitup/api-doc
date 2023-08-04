@@ -485,6 +485,9 @@
                     <a href="#eftaccountinfo" class="toc-h2 toc-link" data-title="EftAccountInfo">EftAccountInfo</a>
                   </li>
                   <li>
+                    <a href="#eft-transfer-statuses" class="toc-h2 toc-link" data-title="EFT Transfer Statuses">EFT Transfer Statuses</a>
+                  </li>
+                  <li>
                     <a href="#efttransfertype" class="toc-h2 toc-link" data-title="EftTransferType">EftTransferType</a>
                   </li>
                   <li>
@@ -4813,454 +4816,7 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>Transfer type</td>
 </tr>
 </tbody></table>
-<h2 id='info-services'>Info Services</h2><h3 id='get-all-banks'>Get All Banks</h3>
-<p>All bank list for eft transfer</p>
-
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-all-bank</code></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/info/get-all-bank'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'
-Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-all-bank</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"bankList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"bankCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"bankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>bankCode</td>
-<td>number</td>
-<td>Bank code</td>
-</tr>
-<tr>
-<td>bankName</td>
-<td>string</td>
-<td>Bank name</td>
-</tr>
-</tbody></table>
-<h3 id='get-all-branches'>Get All Branches</h3>
-<p>All banks branch list for eft transfer</p>
-
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-all-branch</code></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/info/get-all-branch'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'
-Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-all-branch</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"branchInfoList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"bankCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"branchCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"branchCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"branchName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>bankCode</td>
-<td>number</td>
-<td>Bank code</td>
-</tr>
-<tr>
-<td>branchCityId</td>
-<td>number</td>
-<td>Branch city id</td>
-</tr>
-<tr>
-<td>branchCode</td>
-<td>number</td>
-<td>Branch code</td>
-</tr>
-<tr>
-<td>branchName</td>
-<td>string</td>
-<td>Branch name</td>
-</tr>
-</tbody></table>
-<h3 id='get-branch-list-by-bank-code'>Get Branch List by bank code</h3>
-<p>All banks branch list for eft transfer</p>
-
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-branch-list-by-bank-code/{bankCode}</code></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/info/get-branch-list-by-bank-code/{bankCode}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'
-Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-branch-list-by-bank-code/{bankCode}</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"bankList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"bankCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"bankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"branchList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"bankCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"branchCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"branchCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"branchName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>bankCode</td>
-<td>number</td>
-<td>Bank code</td>
-</tr>
-<tr>
-<td>bankName</td>
-<td>string</td>
-<td>Bank name</td>
-</tr>
-<tr>
-<td>branchList</td>
-<td>array</td>
-<td>Branch list</td>
-</tr>
-<tr>
-<td>branchList.bankCode</td>
-<td>number</td>
-<td>Bank code</td>
-</tr>
-<tr>
-<td>branchList.branchCityId</td>
-<td>number</td>
-<td>Branch city id</td>
-</tr>
-<tr>
-<td>branchList.branchCode</td>
-<td>number</td>
-<td>Branch code</td>
-</tr>
-<tr>
-<td>branchList.branchName</td>
-<td>string</td>
-<td>Branch name</td>
-</tr>
-</tbody></table>
-<h3 id='get-currency-list'>Get Currency List</h3>
-<p>All currency list for eft transfer</p>
-
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-currency-list</code></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/info/get-currency-list'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'
-Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-currency-list</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"currencyList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"string"</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>currency</td>
-<td>string</td>
-<td>Currency</td>
-</tr>
-</tbody></table>
-<h3 id='get-error-message-list'>Get Error Message List</h3>
-<p>All error message list for eft transfer</p>
-
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-error-message-list</code></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/info/get-error-message-list'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'
-Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-error-message-list</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"messageList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errorCode</td>
-<td>string</td>
-<td>Error code</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>string</td>
-<td>Error message</td>
-</tr>
-</tbody></table>
-<h3 id='get-reason-list'>Get Reason List</h3>
-<p>All reason list for eft transfer</p>
-
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-reason-list</code></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/info/get-reason-list'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'
-Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-reason-list</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"transferReasonList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"String"</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>reason</td>
-<td>string</td>
-<td>Reason</td>
-</tr>
-</tbody></table>
-<h3 id='get-transfer-status-list'>Get Transfer Status List</h3>
-<p>All transfer status list for eft transfer</p>
-
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-status-list</code></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/info/get-status-list'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'
-Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-status-list</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"transferStatusList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfer order is successfully sended receiver bank"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"statusName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"statusReasonMessageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"statusReasonMessageDetail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>statusCode</td>
-<td>number</td>
-<td>Status code</td>
-</tr>
-<tr>
-<td>statusDescription</td>
-<td>string</td>
-<td>Status description</td>
-</tr>
-<tr>
-<td>statusName</td>
-<td>string</td>
-<td>Status name</td>
-</tr>
-<tr>
-<td>statusReasonMessageCode</td>
-<td>string</td>
-<td>Status reason message code</td>
-</tr>
-<tr>
-<td>statusReasonMessageDetail</td>
-<td>string</td>
-<td>Status reason message detail</td>
-</tr>
-</tbody></table>
-<h3 id='get-transfer-type-list'>Get Transfer Type List</h3>
-<p>All transfer type list for eft transfer</p>
-
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-transfer-type-list</code></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/info/get-transfer-type-list'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'
-Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /eft-api/V2/info/get-transfer-type-list</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"transferTypeList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"String"</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>Type</td>
-</tr>
-</tbody></table>
-<h2 id='get-account-info'>Get Account Info</h2>
+<h2 id='info-services'>Info Services</h2><h2 id='get-account-info'>Get Account Info</h2>
 <p>Service Method returns a list of api user customer accounts information.</p>
 
 <blockquote>
@@ -5725,6 +5281,40 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>Suffix number</td>
 </tr>
 </tbody></table>
+<h2 id='eft-transfer-statuses'>EFT Transfer Statuses</h2>
+<p>Eft Status Codes :</p>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Status Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>10</td>
+<td><code>NEW</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>COMPLETE</code></td>
+</tr>
+<tr>
+<td>30</td>
+<td><code>PENDING</code></td>
+</tr>
+<tr>
+<td>40</td>
+<td><code>REJECTED</code></td>
+</tr>
+<tr>
+<td>50</td>
+<td><code>REFUND</code></td>
+</tr>
+<tr>
+<td>60</td>
+<td><code>CANCEL</code></td>
+</tr>
+</tbody></table>
 <h2 id='efttransfertype'>EftTransferType</h2>
 <p>Money transfer types are defined by the following parameters:</p>
 
@@ -5735,8 +5325,8 @@ Authorization: Bearer {{auth_token}}'</span>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>TO_ACCOUNT</code></td>
-<td>Transfer To account</td>
+<td><code>TO_IBAN</code></td>
+<td>Transfer To IBAN</td>
 </tr>
 <tr>
 <td><code>TO_CREDIT_CARD</code></td>
