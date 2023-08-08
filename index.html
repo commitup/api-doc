@@ -422,9 +422,6 @@
                     <a href="#source-of-income-list" class="toc-h2 toc-link" data-title="Source Of Income List">Source Of Income List</a>
                   </li>
                   <li>
-                    <a href="#relationship-with-sender" class="toc-h2 toc-link" data-title="Relationship with sender">Relationship with sender</a>
-                  </li>
-                  <li>
                     <a href="#work-condition-currency-list" class="toc-h2 toc-link" data-title="Work Condition Currency List">Work Condition Currency List</a>
                   </li>
               </ul>
@@ -483,9 +480,6 @@
                   </li>
                   <li>
                     <a href="#eftaccountinfo" class="toc-h2 toc-link" data-title="EftAccountInfo">EftAccountInfo</a>
-                  </li>
-                  <li>
-                    <a href="#eft-transfer-statuses" class="toc-h2 toc-link" data-title="EFT Transfer Statuses">EFT Transfer Statuses</a>
                   </li>
                   <li>
                     <a href="#efttransfertype" class="toc-h2 toc-link" data-title="EftTransferType">EftTransferType</a>
@@ -658,7 +652,8 @@ After validation is done, confirm is need to be called to create the transfer.</
   </span><span class="nl">"toCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"toOfficeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="nl">"toOfficeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fromCountryCode"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='input'>Input</h3>
 <table><thead>
@@ -740,6 +735,12 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>false</td>
 <td>number</td>
 <td>Office where money will be sent from <a href="#office-list">Office List</a></td>
+</tr>
+<tr>
+<td>fromCountryCode</td>
+<td>true</td>
+<td>string</td>
+<td>money send from country in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
 </tbody></table>
 <h3 id='output'>Output</h3><h4 id='headers'>Headers</h4>
@@ -917,7 +918,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>purposeCodeDefinitionId</td>
 <td>true</td>
 <td>number</td>
-<td>The reason for sending money</td>
+<td>Money transfer purpose id from <a href="/#purpose-list">Purpose List</a></td>
 </tr>
 <tr>
 <td>receiver</td>
@@ -947,7 +948,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>sourceOfIncomeDefinitionId</td>
 <td>true</td>
 <td>number</td>
-<td>The source of money</td>
+<td>Money source of income id from <a href="/#source-of-income-list">Soruce of Income List</a></td>
 </tr>
 <tr>
 <td>toAccountNumber</td>
@@ -959,7 +960,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>toBankId</td>
 <td>true</td>
 <td>string</td>
-<td>Bank id</td>
+<td>Bank id from <a href="/#bank-list">Bank List</a></td>
 </tr>
 <tr>
 <td>toCountryCode</td>
@@ -3552,6 +3553,8 @@ Correct wallet needs to be selected according to country iso code.</p>
 <h2 id='purpose-list'>Purpose List</h2>
 <p>Returns list of money transfer purposes</p>
 
+<p>For transfer to name purposes, you need to use payporter&#39;s purpose codes.</p>
+
 <blockquote>
 <p><code>GET /mt-api/V2/moneytransfercommon/purpose-info-list</code> <strong>request</strong></p>
 </blockquote>
@@ -3597,6 +3600,10 @@ Correct wallet needs to be selected according to country iso code.</p>
 <h2 id='source-of-income-list'>Source Of Income List</h2>
 <p>Returns list of source of incomes</p>
 
+<p>There is two different source of income set. One for transfer to name and one for to account and wallet</p>
+
+<p>For transfer to name source of income, you need to use payporter&#39;s source of income codes.</p>
+
 <blockquote>
 <p><code>GET /mt-api/V2/moneytransfercommon/source-of-income-info-list</code> <strong>request</strong></p>
 </blockquote>
@@ -3637,51 +3644,6 @@ Correct wallet needs to be selected according to country iso code.</p>
 <td>name</td>
 <td>string</td>
 <td>Name of source of income</td>
-</tr>
-</tbody></table>
-<h2 id='relationship-with-sender'>Relationship with sender</h2>
-<p>Returns list of receiver relationships with sender</p>
-
-<blockquote>
-<p><code>GET /mt-api/V2/moneytransfercommon/relationship-with-sender-list</code> <strong>request</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneytransfercommon/relationship-with-sender-list'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div>
-<blockquote>
-<p><code>GET /mt-api/V2/moneytransfercommon/relationship-with-sender-list</code> <strong>response</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p><code>GET /mt-api/V2/moneytransfercommon/relationship-with-sender-list</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>number</td>
-<td>Id of relationship with sender</td>
-</tr>
-<tr>
-<td>description</td>
-<td>string</td>
-<td>Description of relationship with sender</td>
-</tr>
-<tr>
-<td>code</td>
-<td>string</td>
-<td>Name of relationship with sender</td>
 </tr>
 </tbody></table>
 <h2 id='work-condition-currency-list'>Work Condition Currency List</h2>
@@ -4036,7 +3998,7 @@ Correct wallet needs to be selected according to country iso code.</p>
 <td>Currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a></td>
 </tr>
 <tr>
-<td>receiverAccount</td>
+<td>receiverAccount / receiverCardNumber</td>
 <td>true</td>
 <td>string</td>
 <td>Receiver IBAN or Card Number</td>
@@ -4135,7 +4097,7 @@ Correct wallet needs to be selected according to country iso code.</p>
 <li><code>404 The resource you were trying to reach is not found</code></li>
 </ul>
 <h2 id='check-eft-transfer-status'>Check Eft Transfer Status</h2>
-<p>TThere is two endpoints for check EFT transfer status. One of them is for check EFT transfer status by transfer order reference id and the other one is for check EFT transfer status by external firm reference id.</p>
+<p>There is two endpoints for check EFT transfer status. One of them is for check EFT transfer status by transfer order reference id and the other one is for check EFT transfer status by external firm reference id.</p>
 
 <p>extFirmRefId : Unique transaction id . Id number generated by Transfer owner firm.</p>
 
@@ -4449,7 +4411,35 @@ Correct wallet needs to be selected according to country iso code.</p>
   </span><span class="nl">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-18T06:26:10.274Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='output-4'>Output</h4>
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>startDate</td>
+<td>Date</td>
+<td>true</td>
+<td>Begin date for transfer range</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>Date</td>
+<td>true</td>
+<td>End date for transfer range</td>
+</tr>
+<tr>
+<td>statusCode</td>
+<td>Date</td>
+<td>false</td>
+<td>status code filter for transfers</td>
+</tr>
+</tbody></table>
+<h4 id='output-4'>Output</h4>
 <blockquote>
 <p><code>POST /eft-api/V2/transfer/get-transfer-list</code> <strong>response</strong></p>
 </blockquote>
@@ -5154,13 +5144,13 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td>address</td>
 <td>string</td>
-<td></td>
+<td>Sender</td>
 <td>Person address</td>
 </tr>
 <tr>
 <td>addressCountryCode</td>
 <td>string</td>
-<td></td>
+<td>Sender</td>
 <td>Person address country code  <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
 <tr>
@@ -5184,13 +5174,13 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td>company</td>
 <td>boolean</td>
-<td></td>
+<td>Sender</td>
 <td>Person company</td>
 </tr>
 <tr>
 <td>countryPhoneCode</td>
 <td>number</td>
-<td></td>
+<td>Receiver</td>
 <td>Person country phone code</td>
 </tr>
 <tr>
@@ -5208,17 +5198,17 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td>identityNumber</td>
 <td>number</td>
-<td></td>
+<td>Sender</td>
 <td>Person identity number    passport/social security number/identity number</td>
 </tr>
 <tr>
-<td>middleName</td>
+<td>midName</td>
 <td>string</td>
 <td>Sender / Receiver</td>
 <td>Person middle name</td>
 </tr>
 <tr>
-<td>firstName</td>
+<td>name</td>
 <td>string</td>
 <td>Sender / Receiver</td>
 <td>Person name</td>
@@ -5226,20 +5216,20 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td>nationalCountryCode</td>
 <td>string</td>
-<td></td>
+<td>Sender</td>
 <td>Person national country code <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
 <tr>
 <td>phoneNumber</td>
 <td>number</td>
-<td></td>
+<td>Receiver</td>
 <td>Person phone number</td>
 </tr>
 <tr>
-<td>lastName</td>
+<td>surName</td>
 <td>string</td>
 <td>Sender / Receiver</td>
-<td>Person lastname</td>
+<td>Person surname</td>
 </tr>
 </tbody></table>
 <h2 id='eftaccountinfo'>EftAccountInfo</h2>
@@ -5281,40 +5271,6 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>Suffix number</td>
 </tr>
 </tbody></table>
-<h2 id='eft-transfer-statuses'>EFT Transfer Statuses</h2>
-<p>Eft Status Codes :</p>
-
-<table><thead>
-<tr>
-<th>Status Code</th>
-<th>Status Name</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>10</td>
-<td><code>NEW</code></td>
-</tr>
-<tr>
-<td>20</td>
-<td><code>COMPLETE</code></td>
-</tr>
-<tr>
-<td>30</td>
-<td><code>PENDING</code></td>
-</tr>
-<tr>
-<td>40</td>
-<td><code>REJECTED</code></td>
-</tr>
-<tr>
-<td>50</td>
-<td><code>REFUND</code></td>
-</tr>
-<tr>
-<td>60</td>
-<td><code>CANCEL</code></td>
-</tr>
-</tbody></table>
 <h2 id='efttransfertype'>EftTransferType</h2>
 <p>Money transfer types are defined by the following parameters:</p>
 
@@ -5325,8 +5281,8 @@ Authorization: Bearer {{auth_token}}'</span>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>TO_IBAN</code></td>
-<td>Transfer To IBAN</td>
+<td><code>TO_ACCOUNT</code></td>
+<td>Transfer To account</td>
 </tr>
 <tr>
 <td><code>TO_CREDIT_CARD</code></td>
