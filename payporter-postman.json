@@ -46,12 +46,12 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "ttestpay",
+									"value": "username",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "1234",
+									"value": "passsword",
 									"type": "text"
 								}
 							]
@@ -185,7 +185,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"externalFirmCode\": 2,\n    \"externalFirmReferenceNo\": \"00275640117\"\n}",
+							"raw": "{\n    \"externalFirmCode\": 47,\n    \"externalFirmReferenceNo\": \"47004999364\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -205,7 +205,98 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "moneypayment/search",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "externalfirm-user-code",
+										"value": "001",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"externalFirmCode\": 47,\n    \"externalFirmReferenceNo\": \"47004999364\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneypayment/search",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneypayment",
+										"search"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 13:53:47 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "x-forwarded-for",
+									"value": "10.212.135.14"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.32.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"receiver\": {\n            \"firstName\": \"EREN\",\n            \"middleName\": \"EFE\",\n            \"lastName\": \"DEMIR\",\n            \"fatherName\": null,\n            \"birthDateStr\": null,\n            \"nationalCountryCode\": null,\n            \"birthCountryCode\": null,\n            \"identityTypeId\": null,\n            \"identityIssueDateStr\": null,\n            \"identityValidThruDateStr\": null,\n            \"identityNumber\": null,\n            \"identityIssueCountryCode\": null,\n            \"addressCountryCode\": null,\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": \"\",\n            \"mobileCountryCode\": null,\n            \"mobileOperatorNo\": null,\n            \"mobileNo\": \"905352354457\",\n            \"ssnId\": null,\n            \"customerId\": null,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"sender\": {\n            \"firstName\": \"GUZIN\",\n            \"middleName\": null,\n            \"lastName\": \"SARGUN\",\n            \"fatherName\": null,\n            \"birthDateStr\": null,\n            \"nationalCountryCode\": null,\n            \"birthCountryCode\": null,\n            \"identityTypeId\": null,\n            \"identityIssueDateStr\": null,\n            \"identityValidThruDateStr\": null,\n            \"identityNumber\": null,\n            \"identityIssueCountryCode\": null,\n            \"addressCountryCode\": null,\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": \"\",\n            \"mobileCountryCode\": null,\n            \"mobileOperatorNo\": null,\n            \"mobileNo\": \"905306073667\",\n            \"ssnId\": null,\n            \"customerId\": null,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"senderCountryCode\": \"TUR\",\n        \"senderCountryName\": \"TÜRKİYE\",\n        \"sendDate\": \"2023-08-08T16:53:08.536+0300\",\n        \"amount\": 123,\n        \"currencyCode\": 1,\n        \"currency\": \"TRY\",\n        \"externalFirmReferenceNo\": \"47004999364\",\n        \"externalFirmCode\": 47,\n        \"externalFirmName\": \"PAYPORTER\",\n        \"searchUUID\": \"94d8fc71-6a6a-446f-ad4b-26ff45d50911\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "moneypayment/getdetail",
@@ -236,7 +327,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/mt-api/V2/moneypayment/getdetail?pProcessReferenceNo=47000580982&zaasdasd=12-12-2023",
+							"raw": "{{url}}/mt-api/V2/moneypayment/getdetail?pProcessReferenceNo=47004555585",
 							"host": [
 								"{{url}}"
 							],
@@ -249,16 +340,101 @@
 							"query": [
 								{
 									"key": "pProcessReferenceNo",
-									"value": "47000580982"
-								},
-								{
-									"key": "zaasdasd",
-									"value": "12-12-2023"
+									"value": "47004555585"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "moneypayment/getdetail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "externalfirm-user-code",
+										"value": "001",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneypayment/getdetail?pProcessReferenceNo=47004555585",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneypayment",
+										"getdetail"
+									],
+									"query": [
+										{
+											"key": "pProcessReferenceNo",
+											"value": "47004555585"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 13:55:14 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "x-forwarded-for",
+									"value": "10.212.135.14"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.32.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"sender\": {\n            \"firstName\": \"GUZIN\",\n            \"middleName\": null,\n            \"lastName\": \"SARGUN\",\n            \"fatherName\": null,\n            \"birthDateStr\": null,\n            \"nationalCountryCode\": null,\n            \"birthCountryCode\": null,\n            \"identityTypeId\": null,\n            \"identityIssueDateStr\": null,\n            \"identityValidThruDateStr\": null,\n            \"identityNumber\": null,\n            \"identityIssueCountryCode\": null,\n            \"addressCountryCode\": null,\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": null,\n            \"mobileCountryCode\": null,\n            \"mobileOperatorNo\": null,\n            \"mobileNo\": \"905306073667\",\n            \"ssnId\": null,\n            \"customerId\": null,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"receiver\": {\n            \"firstName\": \"EREN\",\n            \"middleName\": \"EFE\",\n            \"lastName\": \"DEMIR\",\n            \"fatherName\": \"VELI\",\n            \"birthDateStr\": \"01.01.1981\",\n            \"nationalCountryCode\": \"TUR\",\n            \"birthCountryCode\": \"TUR\",\n            \"identityTypeId\": 1,\n            \"identityIssueDateStr\": null,\n            \"identityValidThruDateStr\": null,\n            \"identityNumber\": \"testpas1234\",\n            \"identityIssueCountryCode\": null,\n            \"addressCountryCode\": \"TUR\",\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": \"TASDELEN\",\n            \"mobileCountryCode\": \"TUR\",\n            \"mobileOperatorNo\": \"505\",\n            \"mobileNo\": \"8725909\",\n            \"ssnId\": null,\n            \"customerId\": 0,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"incomingAmount\": 123,\n        \"incomingAmountCurrency\": \"TRY\",\n        \"fromExternalFirmName\": \"PAYPORTER\",\n        \"externalFirmReferenceNo\": \"47004999364\",\n        \"externalFirmReferenceNo2\": null,\n        \"fromCountryName\": \"TÜRKİYE\",\n        \"payoutExternalFirmName\": \"TESTPAY\",\n        \"payoutCountryName\": \"TÜRKİYE\",\n        \"processReferenceNo\": 47004555585,\n        \"paymentStatusName\": \"Ödendi\",\n        \"agentCommisionAmount\": 0.74,\n        \"agentCommisionAmountCurrency\": \"TRY\",\n        \"paymentDate\": \"2023-08-08T16:54:48.164+0300\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "moneypayment/confirm",
@@ -305,7 +481,106 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "moneypayment/confirm",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "externalfirm-user-code",
+										"value": "001",
+										"type": "text"
+									},
+									{
+										"key": "operation-id",
+										"value": "{{operation-id}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneypayment/confirm",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneypayment",
+										"confirm"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 13:54:49 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "screen-id",
+									"value": "moneyTransfer.payment"
+								},
+								{
+									"key": "operation-id",
+									"value": "f78dffaf-0b2e-480f-af49-fafc8089c2d3"
+								},
+								{
+									"key": "x-forwarded-for",
+									"value": "10.212.135.14"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "operation-type",
+									"value": "EXECUTE"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.32.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"apiAgentTxnRefNo\": null,\n        \"processReferenceNo\": 47004555585,\n        \"externalFirmReferenceNo\": \"47004999364\",\n        \"paymentArRefNo\": 3,\n        \"paymentArDate\": \"2023-08-08T00:00:00.000+0300\",\n        \"paymentArBranchCode\": 555,\n        \"paymentArRefCode\": \"OD\",\n        \"paymentArId\": 5696017,\n        \"accountingFullRefNo\": \"08.08.2023-555-OD-3\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "moneypayment/validate",
@@ -344,7 +619,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"receiver\": {\n        \"firstName\": \"guzın\",\n        \"middleName\": \"\",\n        \"lastName\": \"sargun\",\n        \"fatherName\": \"Veli\",\n        \"birthDateStr\": \"01.01.1981\",\n        \"nationalCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"identityTypeId\": 1,\n        \"identityIssueDateStr\": \"01.01.1981\",\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"identityNumber\": \"testpas1234\",\n        \"addressCountryCode\": \"TUR\",\n        \"provinceName\": \"osmaniye\",\n        \"districtName\": \"düziçi\",\n        \"address\": \"taşdelen\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileOperatorNo\": 505,\n        \"mobileNo\": 8725909,\n        \"customerId\": null,\n        \"ssnId\": \"16295979334\"\n    },\n    \"searchUUID\": \"bfab790a-f51c-4e80-9c15-8175822c7973\",\n    \"agentTxnRefNo\": null,\n    \"transactionAmount\": 100.00,\n    \"transactionAmountCurrency\": \"USD\"\n}"
+							"raw": "{\n    \"receiver\": {\n        \"firstName\": \"EREN\",\n        \"middleName\": \"EFE\",\n        \"lastName\": \"DEMIR\",\n        \"fatherName\": \"Veli\",\n        \"birthDateStr\": \"01.01.1981\",\n        \"nationalCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"identityTypeId\": 1,\n        \"identityIssueDateStr\": \"01.01.1981\",\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"identityNumber\": \"testpas1234\",\n        \"addressCountryCode\": \"TUR\",\n        \"provinceName\": \"osmaniye\",\n        \"districtName\": \"düziçi\",\n        \"address\": \"taşdelen\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileOperatorNo\": 505,\n        \"mobileNo\": 8725909,\n        \"customerId\": null,\n        \"ssnId\": \"16295979334\"\n    },\n    \"searchUUID\": \"94d8fc71-6a6a-446f-ad4b-26ff45d50911\",\n    \"agentTxnRefNo\": null,\n    \"transactionAmount\": 123.00,\n    \"transactionAmountCurrency\": \"TRY\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/mt-api/V2/moneypayment/validate",
@@ -359,7 +634,109 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "moneypayment/validate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "externalfirm-user-code",
+										"value": "001",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"receiver\": {\n        \"firstName\": \"EREN\",\n        \"middleName\": \"EFE\",\n        \"lastName\": \"DEMIR\",\n        \"fatherName\": \"Veli\",\n        \"birthDateStr\": \"01.01.1981\",\n        \"nationalCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"identityTypeId\": 1,\n        \"identityIssueDateStr\": \"01.01.1981\",\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"identityNumber\": \"testpas1234\",\n        \"addressCountryCode\": \"TUR\",\n        \"provinceName\": \"osmaniye\",\n        \"districtName\": \"düziçi\",\n        \"address\": \"taşdelen\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileOperatorNo\": 505,\n        \"mobileNo\": 8725909,\n        \"customerId\": null,\n        \"ssnId\": \"16295979334\"\n    },\n    \"searchUUID\": \"94d8fc71-6a6a-446f-ad4b-26ff45d50911\",\n    \"agentTxnRefNo\": null,\n    \"transactionAmount\": 123.00,\n    \"transactionAmountCurrency\": \"TRY\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneypayment/validate",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneypayment",
+										"validate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 08 Aug 2023 13:54:31 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "operation-id",
+									"value": "f78dffaf-0b2e-480f-af49-fafc8089c2d3"
+								},
+								{
+									"key": "x-forwarded-for",
+									"value": "10.212.135.14"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "operation-type",
+									"value": "VALIDATION"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.32.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"receiver\": {\n            \"firstName\": \"EREN\",\n            \"middleName\": \"EFE\",\n            \"lastName\": \"DEMIR\",\n            \"fatherName\": \"Veli\",\n            \"birthDateStr\": \"01.01.1981\",\n            \"nationalCountryCode\": 169,\n            \"birthCountryCode\": 169,\n            \"identityTypeId\": 1,\n            \"identityIssueDateStr\": \"01.01.1981\",\n            \"identityValidThruDateStr\": \"01.01.2050\",\n            \"identityNumber\": \"testpas1234\",\n            \"identityIssueCountryCode\": null,\n            \"addressCountryCode\": 169,\n            \"provinceName\": \"osmaniye\",\n            \"districtName\": \"düziçi\",\n            \"address\": \"taşdelen\",\n            \"mobileCountryCode\": 169,\n            \"mobileOperatorNo\": \"505\",\n            \"mobileNo\": \"8725909\",\n            \"ssnId\": \"16295979334\",\n            \"customerId\": null,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"searchUUID\": \"94d8fc71-6a6a-446f-ad4b-26ff45d50911\",\n        \"apiAgentTxnRefNo\": null,\n        \"transactionAmount\": 123,\n        \"transactionAmountFecCode\": 1,\n        \"sender\": {\n            \"firstName\": \"GUZIN\",\n            \"middleName\": null,\n            \"lastName\": \"SARGUN\",\n            \"fatherName\": null,\n            \"birthDateStr\": null,\n            \"nationalCountryCode\": null,\n            \"birthCountryCode\": null,\n            \"identityTypeId\": null,\n            \"identityIssueDateStr\": null,\n            \"identityValidThruDateStr\": null,\n            \"identityNumber\": null,\n            \"identityIssueCountryCode\": null,\n            \"addressCountryCode\": null,\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": \"\",\n            \"mobileCountryCode\": null,\n            \"mobileOperatorNo\": null,\n            \"mobileNo\": \"905306073667\",\n            \"ssnId\": null,\n            \"customerId\": null,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"incomingAmount\": 123,\n        \"incomingAmountFecCode\": 1,\n        \"incomingAmountLocal\": 123,\n        \"incomingAmountLocalCer\": 1,\n        \"incomingAmountFecType\": \"TRY\",\n        \"externalFirmReferenceNo\": \"47004999364\",\n        \"fromCountryCode\": 169,\n        \"fromCountryName\": \"TÜRKİYE\",\n        \"paymentAmount1\": 123,\n        \"paymentAmount1FecCode\": 1,\n        \"paymentAmount1FecType\": \"TRY\",\n        \"apiAgentCommisionAmount\": 0.74,\n        \"apiAgentCommisionAmountFecCode\": 1,\n        \"apiAgentCommisionAmountFecType\": \"TRY\",\n        \"payoutExternalFirmCode\": 123,\n        \"payoutExternalFirmName\": \"TESTPAY\",\n        \"fromExternalFirmCode\": 47,\n        \"fromExternalFirmName\": \"PAYPORTER\",\n        \"payoutCountryCode\": 169,\n        \"payoutCountryName\": \"TURKEY\",\n        \"feeAmount\": null,\n        \"feeAmountFecCode\": null,\n        \"feeAmountLocal\": null,\n        \"feeAmountLocalCer\": null\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -395,7 +772,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"amount\": 100,\n    \"apiAgentTxnRefNo\": \"ABC123\",\n    \"comment\": \"deneme commenti\",\n    \"currency\": \"USD\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 8847659,\n    \"toCityId\": 33346,\n    \"toOfficeId\":null,\n    \"toCountryCode\": \"DEU\",\n    \"toExternalFirmCode\": 2,\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"John Smith\",\n        \"firstName\": \"Jane\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1,\n        \"lastName\": \"Smith\",\n        \"middleName\": \"Doe\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": \"538\",\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    },\n    \"sender\": {\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"districtName\": \"Los Angeles\",\n        \"fatherName\": \"John Doe\",\n        \"firstName\": \"John\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2005\",\n        \"identityNumber\": \"0987654321\",\n        \"identityTypeId\": 2,\n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"jobCode\": 1,\n        \"lastName\": \"Doe\",\n        \"middleName\": \"\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 987653210,\n        \"mobileOperatorNo\": 532,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"California\",\n        \"ssnId\": \"13557545842\"\n    }\n\n}",
+							"raw": "{\n    \"amount\": 100,\n    \"apiAgentTxnRefNo\": \"ABC123\",\n    \"comment\": \"deneme commenti\",\n    \"currency\": \"USD\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 8847659,\n    \"toCityId\": 33303,\n    \"toOfficeId\":null,\n    \"toCountryCode\": \"TUR\",\n    \"toExternalFirmCode\": 2,\n    \"fromCountryCode\" : \"TUR\",\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"John Smith\",\n        \"firstName\": \"Jane\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1,\n        \"lastName\": \"Smith\",\n        \"middleName\": \"Doe\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": \"538\",\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    },\n    \"sender\": {\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"districtName\": \"Los Angeles\",\n        \"fatherName\": \"John Doe\",\n        \"firstName\": \"John\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2005\",\n        \"identityNumber\": \"0987654321\",\n        \"identityTypeId\": 2,\n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"jobCode\": 1,\n        \"lastName\": \"Doe\",\n        \"middleName\": \"\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 987653210,\n        \"mobileOperatorNo\": 532,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"California\",\n        \"ssnId\": \"13557545842\"\n    }\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1089,7 +1466,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"processReferenceNo\": 47000580982,\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"Alp\",\n        \"firstName\": \"Ali\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1234,\n        \"lastName\": \"DENEME\",\n        \"middleName\": \"API\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    }\n}",
+							"raw": "{\n    \"processReferenceNo\": 47004772884,\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"Alp\",\n        \"firstName\": \"Ali\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1234,\n        \"lastName\": \"DENEME\",\n        \"middleName\": \"API\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1370,7 +1747,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"cancellationReasonDescription\": \"canceldeneme\",\n  \"cancellationReasonId\": 3,\n  \"processReferenceNo\": 47000530888\n}",
+							"raw": "{\n  \"cancellationReasonDescription\": \"canceldeneme\",\n  \"cancellationReasonId\": 3,\n  \"processReferenceNo\": 47004772884\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1656,7 +2033,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/mt-api/V2/moneysend/getdetail?processReferenceNo=47002064657",
+							"raw": "{{url}}/mt-api/V2/moneysend/getdetail?processReferenceNo=47004772884",
 							"host": [
 								"{{url}}"
 							],
@@ -1669,7 +2046,7 @@
 							"query": [
 								{
 									"key": "processReferenceNo",
-									"value": "47002064657"
+									"value": "47004772884"
 								}
 							]
 						}
@@ -2186,7 +2563,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"countryCode\": \"DEU\",\n    \"externalFirmCode\": 2\n}",
+							"raw": "{\n    \"countryCode\": \"TUR\",\n    \"externalFirmCode\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2303,6 +2680,11 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-EN",
 								"type": "text"
 							}
 						],
@@ -2518,6 +2900,11 @@
 								"key": "Authorization",
 								"value": "Bearer {{access_token}}",
 								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-EN",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -2706,6 +3093,11 @@
 								"key": "Authorization",
 								"value": "Bearer {{access_token}}",
 								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-EN",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -2817,6 +3209,11 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-EN",
 								"type": "text"
 							}
 						],
@@ -2934,7 +3331,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"cityId\": 33313,\n  \"externalFirmCode\": 2\n}",
+							"raw": "{\n  \"cityId\": 33346,\n  \"externalFirmCode\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2969,7 +3366,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"transferType\": \"WALLET\",\n    \"countryCode\": \"TZA\",\n    \"currency\": \"USD\"\n}",
+							"raw": "{\n    \"transferType\": \"TRANSFER_TO_ACCOUNT\",\n    \"countryCode\": \"RUS\",\n    \"currency\": \"EUR\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3188,6 +3585,11 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-EN",
 								"type": "text"
 							}
 						],
@@ -3506,7 +3908,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"amount\": 150.23,\n    \"comment\": \"string\",\n    \"currency\": \"TRY\",\n    \"receiverAccount\": \"TR850003200037700000028613\",\n    \"senderExtFirmRefId\": \"AB3566123528\",\n    \"transferDate\": \"2023-06-09\",\n    \"transferReason\": \"COMMERCIAL_PAYMENTS\",\n    \"transferType\": \"TO_IBAN\",\n    \"receiverInfo\": {\n        \"firstName\": \"DERYA\",\n        \"lastName\": \"TEKSEN\"\n    },\n    \"senderInfo\": {\n        \"birthDay\": \"1995-07-18\",\n        \"birthPlace\": \"ROMANIA\",\n        \"middleName\": \"JUNIOR\",\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": \"5 th Avenue 1 34096 FATIH Istanbul\",\n        \"addressCountryCode\": \"TUR\",\n        \"company\": false,\n        \"countryPhoneCode\": 90,\n        \"phoneNumber\": 5551234567,\n        \"email\": \"perso_receivern@email.com\",\n        \"identityNumber\": \"57097259400\"\n    }\n}"
+							"raw": "{\n    \"amount\": 150.23,\n    \"comment\": \"string\",\n    \"currency\": \"TRY\",\n    \"receiverAccount\": \"TR850003200037700000028613\",\n    \"senderExtFirmRefId\": \"TEST-1\",\n    \"transferDate\": \"2023-08-08\",\n    \"transferReason\": \"COMMERCIAL_PAYMENTS\",\n    \"transferType\": \"TO_IBAN\",\n    \"receiverInfo\": {\n        \"firstName\": \"DERYA\",\n        \"lastName\": \"TEKSEN\"\n    },\n    \"senderInfo\": {\n        \"birthDay\": \"1995-07-18\",\n        \"birthPlace\": \"ROMANIA\",\n        \"middleName\": \"JUNIOR\",\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": \"5 th Avenue 1 34096 FATIH Istanbul\",\n        \"addressCountryCode\": \"TUR\",\n        \"company\": false,\n        \"countryPhoneCode\": 90,\n        \"phoneNumber\": 5551234567,\n        \"email\": \"perso_receivern@email.com\",\n        \"identityNumber\": \"57097259400\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{url}}/eft-api/V2/transfer/create",
@@ -3969,7 +4371,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"endDate\": \"2023-04-03T06:26:10.274Z\",\n  \"startDate\": \"2023-05-06T06:26:10.274Z\"\n}",
+							"raw": "{\n  \"endDate\": \"2023-08-09T06:26:10.274Z\",\n  \"startDate\": \"2023-08-06T06:26:10.274Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4088,7 +4490,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"endDate\": \"2019-07-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\"\n}",
+							"raw": "{\n  \"endDate\": \"2019-08-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4122,7 +4524,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"endDate\": \"2019-07-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\"\n}",
+							"raw": "{\n  \"endDate\": \"2023-08-09T06:26:10.274Z\",\n  \"startDate\": \"2023-08-06T06:26:10.274Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4241,7 +4643,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "\nRequest body example:\n{\n  \"accountNo\": \"string\",\n  \"endDate\": \"2019-07-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\",\n  \"suffixNo\": 0\n}",
+							"raw": "{\n  \"endDate\": \"2023-08-09T06:26:10.274Z\",\n  \"startDate\": \"2023-08-06T06:26:10.274Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4360,7 +4762,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "\n{\n  \"accountNo\": \"string\",\n  \"endDate\": \"2019-07-18T06:26:10.274Z\",\n  \"startDate\": \"2019-07-18T06:26:10.274Z\",\n  \"suffixNo\": 0\n}",
+							"raw": "{\n  \"endDate\": \"2023-08-09T06:26:10.274Z\",\n  \"startDate\": \"2023-08-06T06:26:10.274Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
