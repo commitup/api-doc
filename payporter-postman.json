@@ -2152,6 +2152,172 @@
 					]
 				},
 				{
+					"name": "detail-by-api-txn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-EN",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneysend/getdetail?processReferenceNo=47004772884",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneysend",
+								"getdetail"
+							],
+							"query": [
+								{
+									"key": "processReferenceNo",
+									"value": "47004772884"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-transfer-detail Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "externalfirm-user-code",
+										"value": "001",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-EN",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "txnId",
+											"value": "ABC123",
+											"type": "text"
+										},
+										{
+											"key": "begin-date",
+											"value": "20-09-2023",
+											"type": "text"
+										},
+										{
+											"key": "end-date",
+											"value": "23-09-2023",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneysend/detail-by-api-txn",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneysend",
+										"detail-by-api-txn"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 22 Sep 2023 07:45:40 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "accept-language",
+									"value": "en-EN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "x-forwarded-for",
+									"value": "10.212.135.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.32.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": [\n        {\n            \"transferStatusId\": 1,\n            \"apiTxnRefId\": \"ABC123\",\n            \"processReferenceNo\": 47005026498,\n            \"externalFirmReferenceNo\": \"47005026498\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
 					"name": "fee-amount-calculate",
 					"event": [
 						{
