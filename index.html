@@ -354,6 +354,9 @@
                   <li>
                     <a href="#get-transfer-details" class="toc-h2 toc-link" data-title="Get Transfer Details">Get Transfer Details</a>
                   </li>
+                  <li>
+                    <a href="#get-transfer-details-by-api-txn" class="toc-h2 toc-link" data-title="Get Transfer Details By Api Txn">Get Transfer Details By Api Txn</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2084,6 +2087,92 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>transferStatusId</td>
 <td>number</td>
 <td>Transfer status id</td>
+</tr>
+</tbody></table>
+<h2 id='get-transfer-details-by-api-txn'>Get Transfer Details By Api Txn</h2>
+<p>Query for sent transfer details by apitxn ref no. Date range can be 3 days max.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>GET /mt-api/V2/moneysend/detail-by-api-txn</code></p>
+
+<blockquote>
+<p><code>GET /mt-api/V2/moneysend/detail-by-api-txn?apiAgentTxnRefNo</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://online-mig.payporter.com.tr:8586/online/mt-api/V2/moneysend/detail-by-api-txn'</span> <span class="se">\</span>
+<span class="nt">--form</span> <span class="s1">'txnId="ABC123"'</span> <span class="se">\</span>
+<span class="nt">--form</span> <span class="s1">'begin-date="20-09-2023"'</span> <span class="se">\</span>
+<span class="nt">--form</span> <span class="s1">'end-date="23-09-2023"
+</span></code></pre></div><h4 id='input-8'>Input</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>txnId</td>
+<td>true</td>
+<td>Transaction reference number</td>
+</tr>
+<tr>
+<td>begin-date</td>
+<td>true</td>
+<td>Transaction reference number  dd-MM-yyyy format</td>
+</tr>
+<tr>
+<td>end-date</td>
+<td>true</td>
+<td>Transaction reference number  dd-MM-yyyy format</td>
+</tr>
+</tbody></table>
+<h4 id='output-9'>Output</h4>
+<blockquote>
+<p><code>GET /mt-api/V2/moneysend/detail-by-api-txn</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"transferStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apiTxnRefId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"processReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">47005026498</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"externalFirmReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47005026498"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transferStatusId</td>
+<td>number</td>
+<td>Transfer status id</td>
+</tr>
+<tr>
+<td>apiTxnRefId</td>
+<td>string</td>
+<td>Api Transaction Ref no</td>
+</tr>
+<tr>
+<td>processReferenceNo</td>
+<td>number</td>
+<td>Transaction reference number</td>
+</tr>
+<tr>
+<td>externalFirmRefNo</td>
+<td>string</td>
+<td>External firm reference number</td>
 </tr>
 </tbody></table>
 <h1 id='payment'>Payment</h1>
