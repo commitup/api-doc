@@ -427,6 +427,9 @@
                   <li>
                     <a href="#work-condition-currency-list" class="toc-h2 toc-link" data-title="Work Condition Currency List">Work Condition Currency List</a>
                   </li>
+                  <li>
+                    <a href="#job-list" class="toc-h2 toc-link" data-title="Job List">Job List</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -3829,6 +3832,50 @@ Correct wallet needs to be selected according to country iso code.</p>
 <td>isoCode</td>
 <td>string</td>
 <td>Currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
+</tr>
+</tbody></table>
+<h2 id='job-list'>Job List</h2>
+<p>Returns list of jobs</p>
+
+<blockquote>
+<p><code>GET /mt-api/V2/moneytransfercommon/job-list</code> <strong>request</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneytransfercommon/job-list'</span> <span class="se">\</span>
+</code></pre></div>
+<blockquote>
+<p><code>GET /mt-api/V2/moneytransfercommon/job-list</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"explanation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASCI"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"explanationEng"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHEF"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><code>GET /mt-api/V2/moneytransfercommon/job-list</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>Id of job</td>
+</tr>
+<tr>
+<td>explanation</td>
+<td>string</td>
+<td>Job name in Turkish</td>
+</tr>
+<tr>
+<td>explanationEng</td>
+<td>string</td>
+<td>Job name in English</td>
 </tr>
 </tbody></table>
 <h1 id='models'>Models</h1><h2 id='person'>Person</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
