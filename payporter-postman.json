@@ -4052,6 +4052,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "job-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneytransfercommon/job-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneytransfercommon",
+								"job-list"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
