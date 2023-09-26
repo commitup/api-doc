@@ -498,6 +498,17 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#eft-to-turkish-banks" class="toc-h1 toc-link" data-title="EFT to Turkish Banks">EFT to Turkish Banks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-account-info" class="toc-h2 toc-link" data-title="Get Account Info">Get Account Info</a>
+                  </li>
+                  <li>
+                    <a href="#get-account-transactions" class="toc-h2 toc-link" data-title="Get Account Transactions">Get Account Transactions</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
@@ -5522,6 +5533,398 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td><code>FINANCIAL</code></td>
 <td>Financial</td>
+</tr>
+</tbody></table>
+<h1 id='eft-to-turkish-banks'>EFT to Turkish Banks</h1><h2 id='get-account-info'>Get Account Info</h2>
+<p>This endpoint provide account information of the user. If input parameters are not provided, it will return all accounts of the user.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<blockquote>
+<p><code>POST /accounting-api/V2/get-account-info</code> <strong>request</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">'{{url}}/accounting-api/V2/get-account-info'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
+    "accountNo": "string",
+    "suffixNo": "number"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"accountNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1197"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"suffixNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='input'>Input</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountNo</td>
+<td>false</td>
+<td>string</td>
+<td>Account number</td>
+</tr>
+<tr>
+<td>suffixNo</td>
+<td>false</td>
+<td>number</td>
+<td>Suffix number</td>
+</tr>
+</tbody></table>
+<h3 id='output'>Output</h3>
+<blockquote>
+<p><code>POST /accounting-api/V2/get-account-info</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"accountInfoModelList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"branchCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"accountNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1197"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"suffixNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"accountNickName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRY"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountCreateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-27T16:58:51.046+0300"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountExpireDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">9499.34</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"customerName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"isAccountActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>header</td>
+<td>object</td>
+<td>response status of request</td>
+</tr>
+<tr>
+<td>responseObject</td>
+<td>object</td>
+<td>response object of request</td>
+</tr>
+<tr>
+<td>accountInfoModelList</td>
+<td>array</td>
+<td>account info list of user</td>
+</tr>
+<tr>
+<td>account</td>
+<td>object</td>
+<td>account info of user</td>
+</tr>
+<tr>
+<td>branchCode</td>
+<td>number</td>
+<td>branch code of account</td>
+</tr>
+<tr>
+<td>accountNo</td>
+<td>string</td>
+<td>account number of user</td>
+</tr>
+<tr>
+<td>suffixNo</td>
+<td>number</td>
+<td>suffix number of account</td>
+</tr>
+<tr>
+<td>accountNickName</td>
+<td>string</td>
+<td>account nickname of account</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>currency of account</td>
+</tr>
+<tr>
+<td>accountCreateDate</td>
+<td>string</td>
+<td>account create date</td>
+</tr>
+<tr>
+<td>accountExpireDate</td>
+<td>string</td>
+<td>account expire date</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>number</td>
+<td>balance of account</td>
+</tr>
+<tr>
+<td>customerName</td>
+<td>string</td>
+<td>customer name of account</td>
+</tr>
+<tr>
+<td>isAccountActive</td>
+<td>string</td>
+<td>account active status</td>
+</tr>
+</tbody></table>
+<h2 id='get-account-transactions'>Get Account Transactions</h2>
+<p>This endpoint provide account transactions of the user. </p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<blockquote>
+<p><code>POST /accounting-api/V2/get-account-transactions</code> <strong>request</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">'{{url}}/accounting-api/V2/get-account-transactions'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
+    "accountNo": "string",
+    "suffixNo": "number",
+     "endDate": "date",
+    "startDate": "date",
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+
+    </span><span class="nl">"accountNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1197"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"suffixNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-18T00:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-18T00:00:00Z"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='input-2'>Input</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountNo</td>
+<td>true</td>
+<td>string</td>
+<td>Account number</td>
+</tr>
+<tr>
+<td>suffixNo</td>
+<td>true</td>
+<td>number</td>
+<td>Suffix number</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>true</td>
+<td>date</td>
+<td>End date</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>true</td>
+<td>date</td>
+<td>Start date</td>
+</tr>
+</tbody></table>
+<h3 id='output-2'>Output</h3>
+<blockquote>
+<p><code>POST /accounting-api/V2/get-account-transactions</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"accountDetailModelList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"branchCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">555</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"accountNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1197"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"suffixNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"accountNickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ttestpay eft transfer account"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRY"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountCreateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-31T18:20:39.085+0300"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountExpireDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">75258.38</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"customerName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"isAccountActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountTransaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-50</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"explanation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47000711455 TESTPAY1689672738071 EFT"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"operationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"sequenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1387674"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-18T00:00:00.000+0300"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"transactionTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:36:06"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-18T00:00:00.000+0300"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"insertUser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autopay"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"dc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.53</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"explanation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47000708687 SNM05098 EFT Masraf"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"operationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"sequenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1438793"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T00:00:00.000+0300"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"transactionTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:15:04"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T00:00:00.000+0300"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"insertUser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autopay"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"dc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>header</td>
+<td>object</td>
+<td>response status of request</td>
+</tr>
+<tr>
+<td>responseObject</td>
+<td>object</td>
+<td>response object of request</td>
+</tr>
+<tr>
+<td>accountDetailModelList</td>
+<td>array</td>
+<td>account info list of user</td>
+</tr>
+<tr>
+<td>account</td>
+<td>object</td>
+<td>account info of user</td>
+</tr>
+<tr>
+<td>branchCode</td>
+<td>number</td>
+<td>branch code of account</td>
+</tr>
+<tr>
+<td>accountNo</td>
+<td>string</td>
+<td>account number of user</td>
+</tr>
+<tr>
+<td>suffixNo</td>
+<td>number</td>
+<td>suffix number of account</td>
+</tr>
+<tr>
+<td>accountNickName</td>
+<td>string</td>
+<td>account nickname of account</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>currency of account</td>
+</tr>
+<tr>
+<td>accountCreateDate</td>
+<td>string</td>
+<td>account create date</td>
+</tr>
+<tr>
+<td>accountExpireDate</td>
+<td>string</td>
+<td>account expire date</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>number</td>
+<td>balance of account</td>
+</tr>
+<tr>
+<td>customerName</td>
+<td>string</td>
+<td>customer name of account</td>
+</tr>
+<tr>
+<td>isAccountActive</td>
+<td>string</td>
+<td>account active status</td>
+</tr>
+<tr>
+<td>accountTransaction</td>
+<td>array</td>
+<td>account transaction list</td>
+</tr>
+<tr>
+<td>accountTransaction.amount</td>
+<td>number</td>
+<td>amount of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.balance</td>
+<td>number</td>
+<td>balance of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.explanation</td>
+<td>string</td>
+<td>explanation of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.operationType</td>
+<td>string</td>
+<td>operation type of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.sequenceNo</td>
+<td>string</td>
+<td>sequence number of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.transactionDate</td>
+<td>string</td>
+<td>transaction date of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.transactionTime</td>
+<td>string</td>
+<td>transaction time of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.valueDate</td>
+<td>string</td>
+<td>value date of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.insertUser</td>
+<td>string</td>
+<td>insert user of transaction</td>
+</tr>
+<tr>
+<td>accountTransaction.dc</td>
+<td>string</td>
+<td>DEBIT OR CREDIT D/C</td>
 </tr>
 </tbody></table>
 
