@@ -4707,7 +4707,12 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Accounting",
+			"item": [
 				{
 					"name": "get-account-info",
 					"request": {
@@ -4728,14 +4733,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/eft-api/V2/account/get-account-info",
+							"raw": "{{url}}/accounting-api/V2/get-account-info",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"eft-api",
+								"accounting-api",
 								"V2",
-								"account",
 								"get-account-info"
 							]
 						}
@@ -4847,14 +4851,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/eft-api/V2/account/get-account-transactions",
+							"raw": "{{url}}/accounting-api/V2/get-account-transactions",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"eft-api",
+								"accounting-api",
 								"V2",
-								"account",
 								"get-account-transactions"
 							]
 						}
@@ -4943,125 +4946,6 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"accountDetailModelList\": [\n            {\n                \"account\": {\n                    \"branchCode\": 2,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 1,\n                    \"accountNickName\": \"TRY\"\n                },\n                \"currency\": \"TRY\",\n                \"accountCreateDate\": \"2023-01-26T10:20:12.386+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 2673.5,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": []\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 2,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 2,\n                    \"accountNickName\": \"USD\"\n                },\n                \"currency\": \"USD\",\n                \"accountCreateDate\": \"2023-01-26T10:20:44.799+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 17064.44,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": [\n                    {\n                        \"amount\": 1,\n                        \"balance\": null,\n                        \"explanation\": \"PP Ref:47004892110,Kurum Ref:47004344093,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5694908\",\n                        \"transactionDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"transactionTime\": \"09:30:18\",\n                        \"valueDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"insertUser\": \"bapikullanici\",\n                        \"dc\": \"C\"\n                    },\n                    {\n                        \"amount\": 1,\n                        \"balance\": null,\n                        \"explanation\": \"PP Ref:47004153245,Kurum Ref:369764069,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5694972\",\n                        \"transactionDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"transactionTime\": \"10:48:01\",\n                        \"valueDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"insertUser\": \"bapikullanici\",\n                        \"dc\": \"C\"\n                    },\n                    {\n                        \"amount\": -1,\n                        \"balance\": null,\n                        \"explanation\": \"OTM.IPTALPP Ref:47004153245,Kurum Ref:369764069,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5694973\",\n                        \"transactionDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"transactionTime\": \"10:48:04\",\n                        \"valueDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"insertUser\": \"bapikullanici\",\n                        \"dc\": \"D\"\n                    },\n                    {\n                        \"amount\": 1,\n                        \"balance\": null,\n                        \"explanation\": \"PP Ref:47004638920,Kurum Ref:369764069,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5694976\",\n                        \"transactionDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"transactionTime\": \"10:50:07\",\n                        \"valueDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"insertUser\": \"bapikullanici\",\n                        \"dc\": \"C\"\n                    },\n                    {\n                        \"amount\": -1,\n                        \"balance\": null,\n                        \"explanation\": \"OTM.IPTALPP Ref:47004638920,Kurum Ref:369764069,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5694977\",\n                        \"transactionDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"transactionTime\": \"10:50:09\",\n                        \"valueDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"insertUser\": \"bapikullanici\",\n                        \"dc\": \"D\"\n                    },\n                    {\n                        \"amount\": 1,\n                        \"balance\": null,\n                        \"explanation\": \"PP Ref:47004455937,Kurum Ref:369764069,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695018\",\n                        \"transactionDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"transactionTime\": \"11:35:59\",\n                        \"valueDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"insertUser\": \"bapikullanici\",\n                        \"dc\": \"C\"\n                    },\n                    {\n                        \"amount\": -1,\n                        \"balance\": null,\n                        \"explanation\": \"OTM.IPTALPP Ref:47004455937,Kurum Ref:369764069,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695020\",\n                        \"transactionDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"transactionTime\": \"11:36:01\",\n                        \"valueDate\": \"2023-08-07T00:00:00.000+0300\",\n                        \"insertUser\": \"bapikullanici\",\n                        \"dc\": \"D\"\n                    },\n                    {\n                        \"amount\": -100,\n                        \"balance\": null,\n                        \"explanation\": \"PP Ref:47004772884,Kurum Ref:00967816736,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695931\",\n                        \"transactionDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"transactionTime\": \"16:04:37\",\n                        \"valueDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"insertUser\": \"testpay\",\n                        \"dc\": \"D\"\n                    },\n                    {\n                        \"amount\": -0.8,\n                        \"balance\": null,\n                        \"explanation\": \"PP Ref:47004772884,Kurum Ref:00967816736,Para Gönderme\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695931\",\n                        \"transactionDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"transactionTime\": \"16:04:37\",\n                        \"valueDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"insertUser\": \"testpay\",\n                        \"dc\": \"D\"\n                    },\n                    {\n                        \"amount\": 100,\n                        \"balance\": null,\n                        \"explanation\": \"İPTAL/CANCELPP Ref:47004772884,Kurum Ref:00967816736,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695932\",\n                        \"transactionDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"transactionTime\": \"16:05:32\",\n                        \"valueDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"insertUser\": \"testpay\",\n                        \"dc\": \"C\"\n                    },\n                    {\n                        \"amount\": 0.8,\n                        \"balance\": null,\n                        \"explanation\": \"İPTAL/CANCELPP Ref:47004772884,Kurum Ref:00967816736,Para Gönderme\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695932\",\n                        \"transactionDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"transactionTime\": \"16:05:32\",\n                        \"valueDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"insertUser\": \"testpay\",\n                        \"dc\": \"C\"\n                    }\n                ]\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 2,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 3,\n                    \"accountNickName\": \"EUR\"\n                },\n                \"currency\": \"EUR\",\n                \"accountCreateDate\": \"2023-01-26T10:21:02.882+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 19669.64,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": [\n                    {\n                        \"amount\": -50,\n                        \"balance\": null,\n                        \"explanation\": \"PP Ref:47004928851,Kurum Ref:47004928851,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695928\",\n                        \"transactionDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"transactionTime\": \"16:02:49\",\n                        \"valueDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"insertUser\": \"testpay\",\n                        \"dc\": \"D\"\n                    },\n                    {\n                        \"amount\": -0.28,\n                        \"balance\": null,\n                        \"explanation\": \"PP Ref:47004928851,Kurum Ref:47004928851,Para Gönderme\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695928\",\n                        \"transactionDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"transactionTime\": \"16:02:49\",\n                        \"valueDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"insertUser\": \"testpay\",\n                        \"dc\": \"D\"\n                    },\n                    {\n                        \"amount\": 50,\n                        \"balance\": null,\n                        \"explanation\": \"OTM.IPTALPP Ref:47004928851,Kurum Ref:47004928851,Kur:1.0000\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695929\",\n                        \"transactionDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"transactionTime\": \"16:02:52\",\n                        \"valueDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"insertUser\": \"testpay\",\n                        \"dc\": \"C\"\n                    },\n                    {\n                        \"amount\": 0.28,\n                        \"balance\": null,\n                        \"explanation\": \"OTM.IPTALPP Ref:47004928851,Kurum Ref:47004928851,Para Gönderme\",\n                        \"operationType\": null,\n                        \"sequenceNo\": \"5695929\",\n                        \"transactionDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"transactionTime\": \"16:02:52\",\n                        \"valueDate\": \"2023-08-08T00:00:00.000+0300\",\n                        \"insertUser\": \"testpay\",\n                        \"dc\": \"C\"\n                    }\n                ]\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 4,\n                    \"accountNickName\": \"testpay aracı kurum hesap\"\n                },\n                \"currency\": \"USD\",\n                \"accountCreateDate\": \"2023-03-23T10:25:54.005+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 12000,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": []\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 5,\n                    \"accountNickName\": \"NETLEŞTİRME HESABI\"\n                },\n                \"currency\": \"EUR\",\n                \"accountCreateDate\": \"2023-03-23T10:27:13.471+0300\",\n                \"accountExpireDate\": \"2023-03-24T00:00:00.000+0300\",\n                \"balance\": 0,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": []\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 6,\n                    \"accountNickName\": \"NETLEŞTİRME HESABI\"\n                },\n                \"currency\": \"TRY\",\n                \"accountCreateDate\": \"2023-03-23T10:27:49.471+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 7279.47,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": []\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 7,\n                    \"accountNickName\": \"NETLEŞTİRME KOMİSYON HESABI\"\n                },\n                \"currency\": \"USD\",\n                \"accountCreateDate\": \"2023-03-23T10:32:15.049+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 0,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": []\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 8,\n                    \"accountNickName\": \"NETLEŞTİRME KOMİSYON HESABI\"\n                },\n                \"currency\": \"EUR\",\n                \"accountCreateDate\": \"2023-03-23T10:33:08.980+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 0,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": []\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 9,\n                    \"accountNickName\": \"NETLEŞTİME KOMİSYON HESABI\"\n                },\n                \"currency\": \"TRY\",\n                \"accountCreateDate\": \"2023-03-23T10:33:58.736+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 14,\n                \"customerName\": null,\n                \"isAccountActive\": null,\n                \"accountTransaction\": []\n            }\n        ]\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "account/get-balance",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{access_token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"endDate\": \"2023-08-09T06:26:10.274Z\",\n  \"startDate\": \"2023-08-06T06:26:10.274Z\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/eft-api/V2/account/get-balance",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"eft-api",
-								"V2",
-								"account",
-								"get-balance"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "account/get-balance",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"endDate\": \"2023-08-09T06:26:10.274Z\",\n  \"startDate\": \"2023-08-06T06:26:10.274Z\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/eft-api/V2/account/get-balance",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"eft-api",
-										"V2",
-										"account",
-										"get-balance"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 08 Aug 2023 13:11:49 GMT"
-								},
-								{
-									"key": "Expires",
-									"value": "0"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "1; mode=block"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "x-forwarded-for",
-									"value": "10.212.135.14"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, max-age=0, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "user-agent",
-									"value": "PostmanRuntime/7.32.3"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json;charset=UTF-8"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"accountInfoModelList\": [\n            {\n                \"account\": {\n                    \"branchCode\": 2,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 1,\n                    \"accountNickName\": \"TRY\"\n                },\n                \"currency\": \"TRY\",\n                \"accountCreateDate\": \"2023-01-26T10:20:12.386+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 2673.5,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 2,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 2,\n                    \"accountNickName\": \"USD\"\n                },\n                \"currency\": \"USD\",\n                \"accountCreateDate\": \"2023-01-26T10:20:44.799+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 17064.44,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 2,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 3,\n                    \"accountNickName\": \"EUR\"\n                },\n                \"currency\": \"EUR\",\n                \"accountCreateDate\": \"2023-01-26T10:21:02.882+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 19669.64,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 4,\n                    \"accountNickName\": \"testpay aracı kurum hesap\"\n                },\n                \"currency\": \"USD\",\n                \"accountCreateDate\": \"2023-03-23T10:25:54.005+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 12000,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 5,\n                    \"accountNickName\": \"NETLEŞTİRME HESABI\"\n                },\n                \"currency\": \"EUR\",\n                \"accountCreateDate\": \"2023-03-23T10:27:13.471+0300\",\n                \"accountExpireDate\": \"2023-03-24T00:00:00.000+0300\",\n                \"balance\": 0,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 6,\n                    \"accountNickName\": \"NETLEŞTİRME HESABI\"\n                },\n                \"currency\": \"TRY\",\n                \"accountCreateDate\": \"2023-03-23T10:27:49.471+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 7279.47,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 7,\n                    \"accountNickName\": \"NETLEŞTİRME KOMİSYON HESABI\"\n                },\n                \"currency\": \"USD\",\n                \"accountCreateDate\": \"2023-03-23T10:32:15.049+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 0,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 8,\n                    \"accountNickName\": \"NETLEŞTİRME KOMİSYON HESABI\"\n                },\n                \"currency\": \"EUR\",\n                \"accountCreateDate\": \"2023-03-23T10:33:08.980+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 0,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            },\n            {\n                \"account\": {\n                    \"branchCode\": 555,\n                    \"accountNo\": \"180118\",\n                    \"suffixNo\": 9,\n                    \"accountNickName\": \"NETLEŞTİME KOMİSYON HESABI\"\n                },\n                \"currency\": \"TRY\",\n                \"accountCreateDate\": \"2023-03-23T10:33:58.736+0300\",\n                \"accountExpireDate\": null,\n                \"balance\": 14,\n                \"customerName\": null,\n                \"isAccountActive\": null\n            }\n        ]\n    }\n}"
 						}
 					]
 				}
