@@ -1080,12 +1080,12 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>receiverPayOutAmountExchangeRate</td>
 <td>number</td>
-<td>Receiver pay out amount cer</td>
+<td>Receiver pay out amount exchange rate</td>
 </tr>
 <tr>
 <td>receiverPayoutAmountCurrency</td>
 <td>string</td>
-<td>Receiver payout amount fec type</td>
+<td>Receiver payout amount currency</td>
 </tr>
 <tr>
 <td>toCountry</td>
@@ -1295,12 +1295,12 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>receiverPayOutAmountExchangeRate</td>
 <td>number</td>
-<td>Receiver pay out amount cer</td>
+<td>Receiver pay out amount exchange rate</td>
 </tr>
 <tr>
 <td>receiverPayoutAmountCurrency</td>
 <td>string</td>
-<td>Receiver payout amount fec type</td>
+<td>Receiver payout amount currency</td>
 </tr>
 <tr>
 <td>toCountry</td>
@@ -1359,13 +1359,7 @@ After validation is done, confirm is need to be called to create the transfer.</
     </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"processReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"externalFirmReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"externalFirmReferenceNo2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sendArId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sendArRefNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sendArDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-10-04T00:00:00.000+0300"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sendArBranchCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sendArRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"accountingFullRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nl">"externalFirmReferenceNo2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h4 id='output-4'>Output</h4>
@@ -1395,36 +1389,6 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>externalFirmReferenceNo2</td>
 <td>string</td>
 <td>External firm reference number 2</td>
-</tr>
-<tr>
-<td>sendArId</td>
-<td>number</td>
-<td>Send ar id</td>
-</tr>
-<tr>
-<td>sendArRefNo</td>
-<td>number</td>
-<td>Send ar ref no</td>
-</tr>
-<tr>
-<td>sendArDate</td>
-<td>string</td>
-<td>Send ar date</td>
-</tr>
-<tr>
-<td>sendArBranchCode</td>
-<td>number</td>
-<td>Send ar branch code</td>
-</tr>
-<tr>
-<td>sendArRefCode</td>
-<td>string</td>
-<td>Send ar ref code</td>
-</tr>
-<tr>
-<td>accountingFullRefNo</td>
-<td>string</td>
-<td>Accounting full reference number</td>
 </tr>
 </tbody></table>
 <h2 id='update-transfer-validate'>Update Transfer Validate</h2>
@@ -1744,12 +1708,6 @@ After validation is done, confirm is need to be called to create the transfer.</
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cancelAccountingFullRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cancelArBranchCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cancelArDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-09-25T11:11:18.239Z"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cancelArId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cancelArRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cancelArRefNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"cancelComplated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"externalFirmReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"fromExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1768,36 +1726,6 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>apiAgentTxnRefNo</td>
 <td>string</td>
 <td>Agent transaction unique reference</td>
-</tr>
-<tr>
-<td>cancelAccountingFullRefNo</td>
-<td>string</td>
-<td>Cancel accounting full reference number</td>
-</tr>
-<tr>
-<td>cancelArBranchCode</td>
-<td>number</td>
-<td>Cancel accounting branch code</td>
-</tr>
-<tr>
-<td>cancelArDate</td>
-<td>string</td>
-<td>Cancel accounting date</td>
-</tr>
-<tr>
-<td>cancelArId</td>
-<td>number</td>
-<td>Cancel accounting id</td>
-</tr>
-<tr>
-<td>cancelArRefCode</td>
-<td>string</td>
-<td>Cancel accounting reference code</td>
-</tr>
-<tr>
-<td>cancelArRefNo</td>
-<td>number</td>
-<td>Cancel accounting reference number</td>
 </tr>
 <tr>
 <td>cancelComplated</td>
