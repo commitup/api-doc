@@ -2356,36 +2356,21 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"apiAgentCommisionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"apiAgentCommisionAmountFecCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"apiAgentCommisionAmountFecType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"incomingAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"incomingAmountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"incomingAmountLocal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"incomingAmountLocalExchangeRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"externalFirmReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"feeAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"feeAmountFecCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"feeAmountLocal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"feeAmountLocalCer"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"fromCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fromCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"fromCountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"apiAgentCommissionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"apiAgentCommissionAmountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"fromExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"fromExternalFirmName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"incomingAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"incomingAmountFecCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"incomingAmountFecType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"incomingAmountLocal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"incomingAmountLocalCer"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentAmount1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentAmount1FecCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentAmount1FecType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"payoutCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"payoutCountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"payoutExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"payoutExternalFirmName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"searchUUID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionAmountFecCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"searchUUID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2405,139 +2390,9 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>apiAgentCommisionAmount</td>
-<td>number</td>
-<td>The amount of the commission</td>
-</tr>
-<tr>
-<td>apiAgentCommisionAmountFecCode</td>
-<td>number</td>
-<td>The currency code of the commission</td>
-</tr>
-<tr>
-<td>apiAgentCommisionAmountFecType</td>
-<td>string</td>
-<td>The currency type of the commission</td>
-</tr>
-<tr>
-<td>apiAgentTxnRefNo</td>
-<td>string</td>
-<td>The reference number of the payment</td>
-</tr>
-<tr>
-<td>externalFirmReferenceNo</td>
-<td>string</td>
-<td>The reference number of the payment</td>
-</tr>
-<tr>
-<td>feeAmount</td>
-<td>number</td>
-<td>The amount of the fee</td>
-</tr>
-<tr>
-<td>feeAmountFecCode</td>
-<td>number</td>
-<td>The currency code of the fee</td>
-</tr>
-<tr>
-<td>feeAmountLocal</td>
-<td>number</td>
-<td>The amount of the fee in local currency</td>
-</tr>
-<tr>
-<td>feeAmountLocalCer</td>
-<td>number</td>
-<td>The currency code of the fee in local currency</td>
-</tr>
-<tr>
-<td>fromCountryCode</td>
-<td>number</td>
-<td>The country code of sender</td>
-</tr>
-<tr>
-<td>fromCountryName</td>
-<td>string</td>
-<td>The country name of sender</td>
-</tr>
-<tr>
-<td>fromExternalFirmCode</td>
-<td>number</td>
-<td>The external firm id of sender</td>
-</tr>
-<tr>
-<td>fromExternalFirmName</td>
-<td>string</td>
-<td>The external firm name of sender</td>
-</tr>
-<tr>
-<td>incomingAmount</td>
-<td>number</td>
-<td>The amount of the incoming payment</td>
-</tr>
-<tr>
-<td>incomingAmountFecCode</td>
-<td>number</td>
-<td>The currency code of the incoming payment</td>
-</tr>
-<tr>
-<td>incomingAmountFecType</td>
-<td>string</td>
-<td>The currency type of the incoming payment</td>
-</tr>
-<tr>
-<td>incomingAmountLocal</td>
-<td>number</td>
-<td>The amount of the incoming payment in local currency</td>
-</tr>
-<tr>
-<td>incomingAmountLocalCer</td>
-<td>number</td>
-<td>The currency code of the incoming payment in local currency</td>
-</tr>
-<tr>
-<td>paymentAmount1</td>
-<td>number</td>
-<td>The amount of the payment</td>
-</tr>
-<tr>
-<td>paymentAmount1FecCode</td>
-<td>number</td>
-<td>The currency code of the payment</td>
-</tr>
-<tr>
-<td>paymentAmount1FecType</td>
-<td>string</td>
-<td>The currency type of the payment</td>
-</tr>
-<tr>
-<td>payoutCountryCode</td>
-<td>number</td>
-<td>The country code of receiver</td>
-</tr>
-<tr>
-<td>payoutCountryName</td>
-<td>string</td>
-<td>The country name of receiver</td>
-</tr>
-<tr>
-<td>payoutExternalFirmCode</td>
-<td>number</td>
-<td>The external firm id of receiver</td>
-</tr>
-<tr>
-<td>payoutExternalFirmName</td>
-<td>string</td>
-<td>The external firm name of receiver</td>
-</tr>
-<tr>
 <td>receiver</td>
 <td><a href="#person">Person</a></td>
 <td>(<a href="#person">Person</a>) object of receiver</td>
-</tr>
-<tr>
-<td>searchUUID</td>
-<td>string</td>
-<td>The search UUID</td>
 </tr>
 <tr>
 <td>sender</td>
@@ -2545,14 +2400,69 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 <td>(<a href="#person">Person</a>) object of sender</td>
 </tr>
 <tr>
-<td>transactionAmount</td>
+<td>incomingAmount</td>
 <td>number</td>
-<td>The amount of the payment</td>
+<td>The amount of incoming payment</td>
 </tr>
 <tr>
-<td>transactionAmountFecCode</td>
+<td>incomingAmountCurrency</td>
+<td>string</td>
+<td>The currency of incoming payment in ISO-4217</td>
+</tr>
+<tr>
+<td>incomingAmountLocal</td>
 <td>number</td>
-<td>The currency code of the payment</td>
+<td>The amount of incoming payment in local currency</td>
+</tr>
+<tr>
+<td>incomingAmountLocalExchangeRate</td>
+<td>number</td>
+<td>The exchange rate of incoming payment in local currency</td>
+</tr>
+<tr>
+<td>externalFirmReferenceNo</td>
+<td>string</td>
+<td>The reference number of the payment</td>
+</tr>
+<tr>
+<td>fromCountry</td>
+<td>string</td>
+<td>Country ISO-3166 code payment sent from</td>
+</tr>
+<tr>
+<td>fromCountryName</td>
+<td>string</td>
+<td>Country name payment sent from</td>
+</tr>
+<tr>
+<td>apiAgentCommissionAmount</td>
+<td>number</td>
+<td>The amount of the agent commission</td>
+</tr>
+<tr>
+<td>apiAgentCommissionAmountCurrency</td>
+<td>string</td>
+<td>The currency type of the agent commission  in ISO-4217</td>
+</tr>
+<tr>
+<td>fromExternalFirmCode</td>
+<td>number</td>
+<td>The external firm code of the payment</td>
+</tr>
+<tr>
+<td>fromExternalFirmName</td>
+<td>string</td>
+<td>The external firm name of the payment</td>
+</tr>
+<tr>
+<td>apiAgentTxnRefNo</td>
+<td>string</td>
+<td>The reference number of the payment</td>
+</tr>
+<tr>
+<td>searchUUID</td>
+<td>string</td>
+<td>The search UUID</td>
 </tr>
 </tbody></table>
 <h3 id='reponse-codes-2'>Reponse Codes</h3>
@@ -2589,28 +2499,18 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 <span class="nt">--header</span> <span class="s1">'operation-id: {{operation_id}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"accountingFullRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"externalFirmReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentArBranchCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentArDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-28T09:08:50.371Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentArId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentArRefCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentArRefNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"processReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">47000902951</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalFirmReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47000756804"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="mi">401</span><span class="w">
+
 
 </span></code></pre></div><h4 id='output-3'>Output</h4>
 <table><thead>
@@ -2621,43 +2521,13 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>accountingFullRefNo</td>
-<td>string</td>
-<td>The accounting full reference no</td>
-</tr>
-<tr>
 <td>apiAgentTxnRefNo</td>
 <td>string</td>
-<td>The reference number of the payment</td>
+<td>The agent reference number of the payment</td>
 </tr>
 <tr>
 <td>externalFirmReferenceNo</td>
 <td>string</td>
-<td>The reference number of the payment</td>
-</tr>
-<tr>
-<td>paymentArBranchCode</td>
-<td>number</td>
-<td>The branch code of the payment</td>
-</tr>
-<tr>
-<td>paymentArDate</td>
-<td>string</td>
-<td>The date of the payment</td>
-</tr>
-<tr>
-<td>paymentArId</td>
-<td>number</td>
-<td>The id of the payment</td>
-</tr>
-<tr>
-<td>paymentArRefCode</td>
-<td>string</td>
-<td>The reference code of the payment</td>
-</tr>
-<tr>
-<td>paymentArRefNo</td>
-<td>number</td>
 <td>The reference number of the payment</td>
 </tr>
 <tr>
@@ -5395,8 +5265,8 @@ Authorization: Bearer {{auth_token}}'</span>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>TO_ACCOUNT</code></td>
-<td>Transfer To account</td>
+<td><code>TO_IBAN</code></td>
+<td>Transfer To IBAN</td>
 </tr>
 <tr>
 <td><code>TO_CREDIT_CARD</code></td>
