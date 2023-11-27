@@ -303,7 +303,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-a894ff89.png" class="logo" alt="" />
+      <img src="images/logo-67852370.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -668,6 +668,7 @@ After validation is done, confirm is need to be called to create the transfer.</
   </span><span class="nl">"purposeCodeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payoutCurrency"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sourceOfIncomeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -725,6 +726,12 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>true</td>
 <td>string</td>
 <td>Transaction amount foreign currency in from <a href="#get-currencies">Currency List</a> in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
+</tr>
+<tr>
+<td>payoutCurrency</td>
+<td>false</td>
+<td>string</td>
+<td>Transaction amount payout currency in from <a href="#get-currencies">Currency List</a> in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
 </tr>
 <tr>
 <td>sourceOfIncomeDefinitionId</td>
@@ -3616,7 +3623,8 @@ Correct wallet needs to be selected according to country iso code.</p>
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"isoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payoutCurrencyList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"string"</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -3641,6 +3649,11 @@ Correct wallet needs to be selected according to country iso code.</p>
 <td>isoCode</td>
 <td>string</td>
 <td>Currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
+</tr>
+<tr>
+<td>payoutCurrencyList</td>
+<td>string</td>
+<td>List of payout currencies  in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
 </tr>
 </tbody></table>
 <h2 id='job-list'>Job List</h2>
