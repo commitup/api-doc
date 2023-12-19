@@ -25,19 +25,7 @@
 					],
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "<client_pass>",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "<your_client>",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
@@ -1786,7 +1774,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"cancellationReasonDescription\": \"canceldeneme\",\n  \"cancellationReasonId\": 3,\n  \"processReferenceNo\": 47004772884\n}",
+									"raw": "",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2185,7 +2173,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/mt-api/V2/moneysend/getdetail?processReferenceNo=47004772884",
+							"raw": "{{url}}/mt-api/V2/moneysend/detail-by-api-txn",
 							"host": [
 								"{{url}}"
 							],
@@ -2193,13 +2181,7 @@
 								"mt-api",
 								"V2",
 								"moneysend",
-								"getdetail"
-							],
-							"query": [
-								{
-									"key": "processReferenceNo",
-									"value": "47004772884"
-								}
+								"detail-by-api-txn"
 							]
 						}
 					},
