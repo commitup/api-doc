@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9a4fe241-a964-495c-9b3f-eb7ced0ac166",
+		"_postman_id": "beb113f9-33c6-4cca-bb46-91d6a174b919",
 		"name": "PayPorter Api v2  Doc",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "448761"
@@ -2208,26 +2208,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "txnId",
-											"value": "ABC123",
-											"type": "text"
-										},
-										{
-											"key": "begin-date",
-											"value": "20-09-2023",
-											"type": "text"
-										},
-										{
-											"key": "end-date",
-											"value": "23-09-2023",
-											"type": "text"
-										}
-									]
-								},
 								"url": {
 									"raw": "{{url}}/mt-api/V2/moneysend/detail-by-api-txn",
 									"host": [
@@ -2350,6 +2330,176 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "wallet holder name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "externalfirm-user-code",
+								"value": "001",
+								"type": "text"
+							},
+							{
+								"key": "transaction-info",
+								"value": "{\\\"id\\\":1,\\\"name\\\":\\\"Para Gonderim Nakit\\\",\\\"executionUrl\\\":\\\"/mt/transfer/collection-from-cash/**;/mt/mtapi/moneysend/*;/mt/transfer/cash/name/**\\\",\\\"enabled\\\":true,\\\"approvable\\\":true,\\\"financial\\\":true,\\\"takeFee\\\":true,\\\"anyAr\\\":true,\\\"aml\\\":true,\\\"updateLastTransactionDate\\\":true,\\\"description\\\":null,\\\"debtCredit\\\":null,\\\"cashBalanceEffects\\\":null,\\\"trnNameSummary\\\":\\\"Para Gonderim Nakit\\\",\\\"transactionGroupId\\\":6,\\\"transactionGroupType\\\":null,\\\"transactionAndGroupKey\\\":\\\"6-1\\\"}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-EN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"toWalletId\": \"ININAL\",\n    \"mobileCountryCode\": \"USA\",\n    \"mobileNo\": 8190129,\n    \"mobileOperatorNo\": 541\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/mt-api/V2/moneysend/to-wallet/holder-name",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mt-api",
+								"V2",
+								"moneysend",
+								"to-wallet",
+								"holder-name"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wallet holder name",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "externalfirm-user-code",
+										"value": "001",
+										"type": "text"
+									},
+									{
+										"key": "transaction-info",
+										"value": "{\\\"id\\\":1,\\\"name\\\":\\\"Para Gonderim Nakit\\\",\\\"executionUrl\\\":\\\"/mt/transfer/collection-from-cash/**;/mt/mtapi/moneysend/*;/mt/transfer/cash/name/**\\\",\\\"enabled\\\":true,\\\"approvable\\\":true,\\\"financial\\\":true,\\\"takeFee\\\":true,\\\"anyAr\\\":true,\\\"aml\\\":true,\\\"updateLastTransactionDate\\\":true,\\\"description\\\":null,\\\"debtCredit\\\":null,\\\"cashBalanceEffects\\\":null,\\\"trnNameSummary\\\":\\\"Para Gonderim Nakit\\\",\\\"transactionGroupId\\\":6,\\\"transactionGroupType\\\":null,\\\"transactionAndGroupKey\\\":\\\"6-1\\\"}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-EN",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"toWalletId\": \"ININAL\",\n    \"mobileCountryCode\": \"USA\",\n    \"mobileNo\": 8190129,\n    \"mobileOperatorNo\": 541\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneysend/to-wallet/holder-name",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneysend",
+										"to-wallet",
+										"holder-name"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:17:51 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "accept-language",
+									"value": "en-EN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "x-forwarded-for",
+									"value": "10.212.135.16"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.36.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\",\n        \"messageCode\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"fullName\": \"E*****S S*****U\"\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -4317,15 +4467,6 @@
 										"value": "Bearer {{access_token}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "{{url}}/eft-api/V2/transfer/check-status-by-transfer-order-ref/47002764387",
 									"host": [
