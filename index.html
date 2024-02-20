@@ -467,6 +467,9 @@
                     <a href="#check-eft-transfer-status" class="toc-h2 toc-link" data-title="Check Eft Transfer Status">Check Eft Transfer Status</a>
                   </li>
                   <li>
+                    <a href="#eft-status-codes" class="toc-h2 toc-link" data-title="Eft Status Codes">Eft Status Codes</a>
+                  </li>
+                  <li>
                     <a href="#cancel-eft-transfer" class="toc-h2 toc-link" data-title="Cancel EFT Transfer">Cancel EFT Transfer</a>
                   </li>
                   <li>
@@ -4274,40 +4277,71 @@ Correct wallet needs to be selected according to country iso code.</p>
 <td>Status reason message detail of the transfer</td>
 </tr>
 </tbody></table>
-
-<p>Eft Status Codes :</p>
+<h2 id='eft-status-codes'>Eft Status Codes</h2>
+<blockquote>
+<p><img src="images/EFT_Status-2c8300bf.png" alt="EFT Transfer Status Flow" /></p>
+</blockquote>
 
 <table><thead>
 <tr>
 <th>Status Code</th>
 <th>Status Name</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>10</td>
 <td><code>NEW</code></td>
+<td>Transfer created</td>
 </tr>
 <tr>
 <td>20</td>
 <td><code>COMPLETE</code></td>
+<td>Transfer is successfully sended receiver bank</td>
 </tr>
 <tr>
 <td>30</td>
 <td><code>PENDING</code></td>
+<td>Transfer is waiting for process</td>
 </tr>
 <tr>
 <td>40</td>
 <td><code>REJECTED</code></td>
+<td>Transfer is rejected.</td>
 </tr>
 <tr>
 <td>50</td>
 <td><code>REFUND</code></td>
+<td>Transfer is refunded.</td>
 </tr>
 <tr>
 <td>60</td>
 <td><code>CANCEL</code></td>
+<td>Transfer is cancelled.</td>
 </tr>
 </tbody></table>
+
+<p>To track the status of an EFT transfer, you can periodically query the transaction&#39;s status until it reaches the Final Status or <code>COMPLETED</code> status.</p>
+
+<p>There are two methods you can use to check the status of a transfer:</p>
+
+<ul>
+<li>Use the <code>POST /eft-api/V2/transfer/get-transfer-list</code> endpoint with an order date range to retrieve a list of all your orders.</li>
+<li>Query the status of a specific transfer using the following endpoints:
+
+<ul>
+<li><code>GET /eft-api/V2/transfer/check-status-by-ext-firm-id/{extFirmRefId}</code></li>
+<li><code>GET /eft-api/V2/transfer/check-status-by-transfer-order-ref/{transferOrderRefId}</code></li>
+</ul></li>
+</ul>
+
+<p>⚠️ <strong>Rate Limiter!</strong> Please note that if you choose to query the status of each transfer individually, there is a rate limiter in place to prevent more than 60 queries per minute.</p>
+
+<p>Once a transfer reaches the <code>COMPLETED</code>, <code>REJECTED</code>, <code>REFUND</code>, or <code>CANCEL</code> status, you should stop querying its status (if you are using the individual query method).</p>
+
+<p>Since a <code>REFUND</code> can occur at any time after a transfer is <code>COMPLETED</code>, it is recommended to call the &quot;Get Refund List&quot; endpoint multiple times a day.</p>
+
+<p>To retrieve the list of transactions that were refunded today, you can use the &quot;Get Refund List&quot; endpoint with the SYSDATE(today) parameter. You do not need to query with the original order date.</p>
 <h2 id='cancel-eft-transfer'>Cancel EFT Transfer</h2>
 <p>This endpoint cancel the EFT transfer request</p>
 <h3 id='http-request-3'>HTTP Request</h3>
