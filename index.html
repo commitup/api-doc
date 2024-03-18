@@ -624,6 +624,15 @@
 <td>Scope</td>
 </tr>
 </tbody></table>
+
+<p><strong>Important Notes About Login</strong></p>
+
+<ul>
+<li>You should keep the token and use the same token until it expires. </li>
+<li>We kindly ask you to avoid getting new token before each transaction. As it’s a high cost operation. </li>
+<li>When the token is expired , you will get <code>HTTP 401</code> error. You should call login and get a new token. </li>
+<li>It’s possible that your token may be inactive before it expires. In that case you will receive <code>HTTP:406</code> with <code>messageCode:LOGOUT</code>. You should call login  and get a new token. </li>
+</ul>
 <h1 id='transfer'>Transfer</h1>
 <p>Transfer is the main resource of the API. It represents a money transfer request.
 It is created by the sender and then it is processed by the PayPorter platform.
@@ -2789,16 +2798,17 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 <h1 id='commons'>Commons</h1>
 <p>Common functions for money transfer needs</p>
 <h2 id='bank-list'>Bank List</h2>
-<p>Returns list of all banks list for transfer to bank account</p>
+<p>Returns list of all banks list for transfer to bank account by country iso code. </p>
 
 <blockquote>
 <p><code>GET /mt-api/V2/moneytransfercommon/bank-info-list</code> <strong>request</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneytransfercommon/bank-info-list'</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">'{{url}}/mt-api/V2/moneytransfercommon/bank-info/{{countryIsoCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span>
+
 </code></pre></div>
 <blockquote>
-<p><code>GET /mt-api/V2/moneytransfercommon/bank-info-list</code> <strong>response</strong></p>
+<p><code>GET /mt-api/V2/moneytransfercommon/bank-info/{countryIsoCode}</code> <strong>response</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -2808,7 +2818,7 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p><code>GET /mt-api/V2/moneytransfercommon/bank-info-list</code></p>
+<p><code>GET /mt-api/V2/moneytransfercommon/bank-info/{countryIsoCode}</code></p>
 
 <table><thead>
 <tr>
@@ -3825,7 +3835,8 @@ Correct wallet needs to be selected according to country iso code.</p>
     </span><span class="nl">"mobileOperatorNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"nationalCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"provinceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ssnId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nl">"ssnId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"zipCode"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
@@ -3970,6 +3981,12 @@ Correct wallet needs to be selected according to country iso code.</p>
 <td>false</td>
 <td>String</td>
 <td>Social security number</td>
+</tr>
+<tr>
+<td>zipCode</td>
+<td>false</td>
+<td>String</td>
+<td>Zip code</td>
 </tr>
 </tbody></table>
 <h1 id='resources'>Resources</h1><h2 id='transfer-statuses'>Transfer Statuses</h2>
