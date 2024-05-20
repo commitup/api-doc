@@ -713,13 +713,13 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>apiAgentTxnRefNo</td>
 <td>true</td>
-<td>string</td>
+<td>string(50)</td>
 <td>Agent transaction unique reference</td>
 </tr>
 <tr>
 <td>comment</td>
 <td>false</td>
-<td>string</td>
+<td>string(250)</td>
 <td>Comment of transfer</td>
 </tr>
 <tr>
@@ -737,13 +737,13 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>currency</td>
 <td>true</td>
-<td>string</td>
+<td>string(3)</td>
 <td>Transaction amount foreign currency in from <a href="#work-condition-currency-list">Currency List</a> in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
 </tr>
 <tr>
 <td>payoutCurrency</td>
 <td>false</td>
-<td>string</td>
+<td>string(3)</td>
 <td>Transaction amount payout currency in from <a href="#work-condition-currency-list">Currency List</a> in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
 </tr>
 <tr>
@@ -761,7 +761,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>toCountryCode</td>
 <td>true</td>
-<td>string</td>
+<td>string(3)</td>
 <td>Country where money will be sent from <a href="#country-list">Country List</a> in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
 <tr>
@@ -779,7 +779,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>fromCountryCode</td>
 <td>true</td>
-<td>string</td>
+<td>string(3)</td>
 <td>money send from country in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
 </tbody></table>
@@ -815,9 +815,7 @@ After validation is done, confirm is need to be called to create the transfer.</
       </span><span class="nl">"receiverPayOutAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"receiverPayOutAmountExchangeRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"receiverPayoutAmountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"toCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"toExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"toExternalFirmName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="nl">"toCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -886,16 +884,6 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>toCountry</td>
 <td>string</td>
 <td>Country where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
-</tr>
-<tr>
-<td>toExternalFirmCode</td>
-<td>number</td>
-<td>The intermediary institution that money will go to</td>
-</tr>
-<tr>
-<td>toExternalFirmName</td>
-<td>string</td>
-<td>The intermediary institution that money will go to name</td>
 </tr>
 </tbody></table>
 <h3 id='reponse-codes'>Reponse Codes</h3>
@@ -946,13 +934,13 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>apiAgentTxnRefNo</td>
 <td>true</td>
-<td>string</td>
+<td>string(50)</td>
 <td>Agent transaction unique reference</td>
 </tr>
 <tr>
 <td>comment</td>
 <td>false</td>
-<td>string</td>
+<td>string(250)</td>
 <td>Comment of transfer</td>
 </tr>
 <tr>
@@ -970,7 +958,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>currency</td>
 <td>true</td>
-<td>string</td>
+<td>string(3)</td>
 <td>Receiver amount foreign currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a></td>
 </tr>
 <tr>
@@ -994,7 +982,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>toAccountNumber</td>
 <td>true</td>
-<td>string</td>
+<td>string(50)</td>
 <td>Bank account number</td>
 </tr>
 <tr>
@@ -1006,7 +994,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>toCountryCode</td>
 <td>true</td>
-<td>string</td>
+<td>string(3)</td>
 <td>Country where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
 </tbody></table>
@@ -1042,9 +1030,7 @@ After validation is done, confirm is need to be called to create the transfer.</
       </span><span class="nl">"receiverPayOutAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"receiverPayOutAmountExchangeRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"receiverPayoutAmountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"toCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"toExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"toExternalFirmName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="nl">"toCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1114,16 +1100,6 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>string</td>
 <td>Country where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
-<tr>
-<td>toExternalFirmCode</td>
-<td>number</td>
-<td>The intermediary institution that money will go to</td>
-</tr>
-<tr>
-<td>toExternalFirmName</td>
-<td>string</td>
-<td>The intermediary institution that money will go to name</td>
-</tr>
 </tbody></table>
 <h2 id='transfer-to-wallet'>Transfer to Wallet</h2><h3 id='validate'>Validate</h3>
 <p>This endpoint validates the transfer to wallet request</p>
@@ -1165,13 +1141,13 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>apiAgentTxnRefNo</td>
 <td>true</td>
-<td>string</td>
+<td>string(50)</td>
 <td>Agent transaction unique reference</td>
 </tr>
 <tr>
 <td>comment</td>
 <td>false</td>
-<td>string</td>
+<td>string(250)</td>
 <td>Comment of transfer</td>
 </tr>
 <tr>
@@ -1189,7 +1165,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>currency</td>
 <td>true</td>
-<td>string</td>
+<td>string(3)</td>
 <td>Receiver amount foreign currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a></td>
 </tr>
 <tr>
@@ -1213,7 +1189,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <tr>
 <td>toCountryCode</td>
 <td>true</td>
-<td>string</td>
+<td>string(3)</td>
 <td>Country where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
 <tr>
@@ -1258,8 +1234,6 @@ After validation is done, confirm is need to be called to create the transfer.</
       </span><span class="nl">"receiverPayOutAmountExchangeRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"receiverPayoutAmountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"toCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"toExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"toExternalFirmName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"walletHolderName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1329,16 +1303,6 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>toCountry</td>
 <td>string</td>
 <td>Country where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
-</tr>
-<tr>
-<td>toExternalFirmCode</td>
-<td>number</td>
-<td>The intermediary institution that money will go to</td>
-</tr>
-<tr>
-<td>toExternalFirmName</td>
-<td>string</td>
-<td>The intermediary institution that money will go to name</td>
 </tr>
 <tr>
 <td>walletHolderName</td>
@@ -2284,7 +2248,7 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 <tr>
 <td>externalFirmReferenceNo</td>
 <td>true</td>
-<td>string</td>
+<td>string(25)</td>
 <td>The reference number of the payment</td>
 </tr>
 </tbody></table>
@@ -2334,7 +2298,7 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 <tr>
 <td>currency</td>
 <td>string</td>
-<td>Currency of transaction</td>
+<td>Transaction amount foreign currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a></td>
 </tr>
 <tr>
 <td>currencyCode</td>
@@ -2429,7 +2393,7 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 <tr>
 <td>apiAgentTxnRefNo</td>
 <td>true</td>
-<td>string</td>
+<td>string(50)</td>
 <td>The reference number of the payment</td>
 </tr>
 <tr>
@@ -2467,7 +2431,7 @@ After validation is done, confirm is need to be called to pay the incoming.</p>
 </tbody></table>
 
 <blockquote>
-<p><code>POST /mt-api/V2/moneysend/to-name/validate</code> <strong>response</strong></p>
+<p><code>POST /mt-api/V2/moneypayment/validate</code> <strong>response</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3852,19 +3816,19 @@ Correct wallet needs to be selected according to country iso code.</p>
 <tr>
 <td>address</td>
 <td>false</td>
-<td>String</td>
+<td>String(250)</td>
 <td>Address text of Person</td>
 </tr>
 <tr>
 <td>addressCountryCode</td>
 <td>true</td>
-<td>String</td>
+<td>String(3)</td>
 <td>Address country code in   <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso_code</td>
 </tr>
 <tr>
 <td>birthCountryCode</td>
 <td>true</td>
-<td>String</td>
+<td>String(3)</td>
 <td>Birth country code in   <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso_code</td>
 </tr>
 <tr>
@@ -3876,25 +3840,25 @@ Correct wallet needs to be selected according to country iso code.</p>
 <tr>
 <td>districtName</td>
 <td>false</td>
-<td>String</td>
+<td>String(50)</td>
 <td>District Name of address</td>
 </tr>
 <tr>
 <td>fatherName</td>
 <td>false</td>
-<td>String</td>
+<td>String(50)</td>
 <td>Father name</td>
 </tr>
 <tr>
 <td>firstName</td>
 <td>true</td>
-<td>String</td>
+<td>String(50)</td>
 <td>First name</td>
 </tr>
 <tr>
 <td>identityIssueCountryCode</td>
 <td>false</td>
-<td>String</td>
+<td>String(3)</td>
 <td>Identity issue country code in   <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso_code</td>
 </tr>
 <tr>
@@ -3906,7 +3870,7 @@ Correct wallet needs to be selected according to country iso code.</p>
 <tr>
 <td>identityNumber</td>
 <td>true</td>
-<td>String</td>
+<td>String(25)</td>
 <td>Identity number</td>
 </tr>
 <tr>
@@ -3930,55 +3894,55 @@ Correct wallet needs to be selected according to country iso code.</p>
 <tr>
 <td>lastName</td>
 <td>true</td>
-<td>String</td>
+<td>String(50)</td>
 <td>Last name</td>
 </tr>
 <tr>
 <td>middleName</td>
 <td>false</td>
-<td>String</td>
+<td>String(50)</td>
 <td>Middle name</td>
 </tr>
 <tr>
 <td>mobileCountryCode</td>
 <td>true</td>
-<td>Integer</td>
+<td>Integer(3)</td>
 <td>Mobile number country code</td>
 </tr>
 <tr>
 <td>mobileNo</td>
 <td>true</td>
-<td>String</td>
+<td>String(25)</td>
 <td>Mobile phone number</td>
 </tr>
 <tr>
 <td>mobileOperatorNo</td>
 <td>true</td>
-<td>String</td>
+<td>String(5)</td>
 <td>Mobile phone operator code</td>
 </tr>
 <tr>
 <td>nationalCountryCode</td>
 <td>true</td>
-<td>String</td>
+<td>String(3)</td>
 <td>National country code in   <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso_code</td>
 </tr>
 <tr>
 <td>provinceName</td>
 <td>false</td>
-<td>String</td>
+<td>String(50)</td>
 <td>Province name</td>
 </tr>
 <tr>
 <td>ssnId</td>
 <td>false</td>
-<td>String</td>
+<td>String(11)</td>
 <td>Social security number</td>
 </tr>
 <tr>
 <td>zipCode</td>
 <td>false</td>
-<td>String</td>
+<td>String(50)</td>
 <td>Zip code</td>
 </tr>
 </tbody></table>
