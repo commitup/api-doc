@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
   <head>
@@ -4190,25 +4191,21 @@ Correct wallet needs to be selected according to country iso code.</p>
 
 </span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"transferStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfer order is successfully sended receiver bank"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"statusName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"statusReasonMessageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"statusReasonMessageDetail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"transferStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"statusName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"statusReasonMessageCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"statusReasonMessageDetail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='output-2'>Output</h3>
 <table><thead>
@@ -5613,10 +5610,6 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td>EFT_WRONG_IBAN_FORMAT</td>
 <td>IBAN Format Error</td>
-</tr>
-<tr>
-<td>EFT_DEMAND_ALREADY_CREATED_WITH_THIS_COLLECION_REF</td>
-<td>The reference is duplicated, query the status of your transaction</td>
 </tr>
 <tr>
 <td>EFT_TRANSACTION_DATE_CANNOT_BE_PAST</td>
