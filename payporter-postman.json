@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "c120bedc-07ca-4312-9290-e624346f9a79",
-		"name": "Payporter Api Collection",
+		"_postman_id": "9dd4b585-431d-4589-bbf6-e668ea674e24",
+		"name": "Payporter Api Collection Doc",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "448761"
 	},
@@ -20,14 +20,25 @@
 									"pm.environment.set(\"access_token\", jsonData.responseObject[\"access_token\"]);",
 									"pm.environment.set(\"gecerlilik\", jsonData.responseObject[\"expires_in\"]);"
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [],
@@ -87,7 +98,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/mt-api/V2/moneytransfercommon/firm-info/RUS",
+									"raw": "{{url}}/mt-api/V2/moneytransfercommon/firm-info/AZE",
 									"host": [
 										"{{url}}"
 									],
@@ -96,7 +107,7 @@
 										"V2",
 										"moneytransfercommon",
 										"firm-info",
-										"RUS"
+										"AZE"
 									]
 								}
 							},
@@ -295,7 +306,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"countryCode\": \"RUS\",\n    \"externalFirmCode\": 2\n}",
+									"raw": "{\n    \"countryCode\": \"TUR\",\n    \"externalFirmCode\": 47\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -420,7 +431,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"cityId\": 58454,\n  \"externalFirmCode\": 2\n}",
+									"raw": "{\n  \"cityId\": 113835,\n  \"externalFirmCode\": 11\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -554,7 +565,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001"
+										"value": "{{userCode}}"
 									},
 									{
 										"key": "Accept-Language",
@@ -563,7 +574,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"amount\": 100,\n    \"apiAgentTxnRefNo\": \"{{$randomUUID}}\",\n    \"comment\": \" transfer comment\",\n    \"toCountryCode\": \"RUS\",\n    \"toExternalFirmCode\": 2,\n    \"currency\": \"USD\",\n    \"payoutCurrency\": null,\n    \"toCityId\": 58454,\n    \"toOfficeId\": null,\n    \"fromCountryCode\": \"TUR\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 2,\n    \"receiver\": {\n        \"firstName\": \"Osman\",\n        \"middleName\": null,\n        \"lastName\": \"SAVCI\",\n        \"fatherName\": \"DURAK\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\"\n    },\n    \"sender\": {\n        \"firstName\": \"DERYA\",\n        \"middleName\": null,\n        \"lastName\": \"TEKINSEN\",\n        \"fatherName\": \"METIN\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 987653210,\n        \"mobileOperatorNo\": 532,\n        \"nationalCountryCode\": \"DEU\",\n        \"address\": \"Buyukdere cad. no 23\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"provinceName\": \"Istanbul\",\n        \"districtName\": \"Sisli\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2005\",\n        \"identityNumber\": \"0987654321\",\n        \"identityTypeId\": 2,\n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"ssnId\": \"13557545842\"\n    }\n}",
+									"raw": "{\n    \"amount\": 100,\n    \"apiAgentTxnRefNo\": \"\",\n    \"comment\": \"test\",\n    \"toCountryCode\": \"DEU\",\n    \"toExternalFirmCode\": 11,\n    \"currency\": \"EUR\",\n    //\"payoutCurrency\": \"RUB\",\n    \"toCityId\": 113835,\n    \"toOfficeId\": 219496,\n    \"fromCountryCode\": \"TUR\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 2,\n    \"receiver\": {\n        \"fatherName\": \"John Smith\",\n        \"firstName\": \"Jane\",\n        \"lastName\": \"Smith\",\n        \"middleName\": \"Doe\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\"\n    },\n    \"sender\": {\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"districtName\": \"Los Angeles\",\n        \"fatherName\": \"John Doe\",\n        \"firstName\": \"John\",\n        \"identityIssueCountryCode\": \"TUR\", \n        \"identityIssueDateStr\": \"01.01.2005\", \n        \"identityNumber\": \"0987654321\", \n        \"identityTypeId\": 2, \n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"lastName\": \"Doe\",\n        \"middleName\": \"\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 987653210,\n        \"mobileOperatorNo\": 532,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"California\",\n        \"ssnId\": \"13557545842\"\n    }\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -596,7 +607,7 @@
 											},
 											{
 												"key": "externalfirm-user-code",
-												"value": "001"
+												"value": "{{userCode}}"
 											},
 											{
 												"key": "Accept-Language",
@@ -713,7 +724,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									}
 								],
@@ -746,7 +757,7 @@
 											},
 											{
 												"key": "externalfirm-user-code",
-												"value": "001"
+												"value": "{{userCode}}"
 											}
 										],
 										"url": {
@@ -855,7 +866,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"disabled": true
 									},
 									{
@@ -864,7 +875,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/mt-api/V2/moneysend/getdetail?processReferenceNo=47004443859",
+									"raw": "{{url}}/mt-api/V2/moneysend/getdetail?processReferenceNo=47001132580",
 									"host": [
 										"{{url}}"
 									],
@@ -877,7 +888,7 @@
 									"query": [
 										{
 											"key": "processReferenceNo",
-											"value": "47004443859"
+											"value": "47001132580"
 										}
 									]
 								}
@@ -1007,13 +1018,13 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"processReferenceNo\": 47004904091,\n   \"receiver\": {\n        \"firstName\": \"AHMET\",\n        \"middleName\": null,\n        \"lastName\": \"SAVCI\",\n        \"fatherName\": \"DURAK\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\"\n    } \n}",
+									"raw": "{\n    \"processReferenceNo\": 47000580982,\n    \"receiver\": {\n        \"address\": \"123 Main Street\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"districtName\": \"New York\",\n        \"fatherName\": \"Alp\",\n        \"firstName\": \"Ali\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1234,\n        \"lastName\": \"DENEME\",\n        \"middleName\": \"API\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"ssnId\": \"123-45-6789\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1033,110 +1044,7 @@
 									]
 								}
 							},
-							"response": [
-								{
-									"name": "update-receiver-info-validate",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}",
-												"type": "text"
-											},
-											{
-												"key": "externalfirm-user-code",
-												"value": "001",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"processReferenceNo\": 47004904091,\n   \"receiver\": {\n        \"firstName\": \"AHMET\",\n        \"middleName\": null,\n        \"lastName\": \"SAVCI\",\n        \"fatherName\": \"DURAK\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\"\n    } \n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{url}}/mt-api/V2/transferupdate/validate",
-											"host": [
-												"{{url}}"
-											],
-											"path": [
-												"mt-api",
-												"V2",
-												"transferupdate",
-												"validate"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Wed, 17 Jul 2024 13:40:09 GMT"
-										},
-										{
-											"key": "Expires",
-											"value": "0"
-										},
-										{
-											"key": "x-client-port",
-											"value": "58844"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "DENY"
-										},
-										{
-											"key": "operation-id",
-											"value": "30e4b624-1c11-4a2d-a72e-6a2de89d9ccc"
-										},
-										{
-											"key": "x-forwarded-for",
-											"value": "10.212.135.6"
-										},
-										{
-											"key": "Pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "operation-type",
-											"value": "VALIDATION"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, no-store, max-age=0, must-revalidate"
-										},
-										{
-											"key": "user-agent",
-											"value": "PostmanRuntime/7.39.0"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json;charset=UTF-8"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\",\n        \"messageCode\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"externalFirmReferenceNo\": \"387396485\",\n        \"sender\": {\n            \"firstName\": \"DERYA\",\n            \"middleName\": null,\n            \"lastName\": \"TEKINSEN\",\n            \"fatherName\": \"METIN\",\n            \"birthDateStr\": \"01.01.1985\",\n            \"nationalCountryCode\": \"DEU\",\n            \"birthCountryCode\": \"TUR\",\n            \"identityTypeId\": 2,\n            \"identityIssueDateStr\": null,\n            \"identityValidThruDateStr\": null,\n            \"identityNumber\": \"0987654321\",\n            \"identityIssueCountryCode\": \"TUR\",\n            \"addressCountryCode\": \"TUR\",\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": \"BUYUKDERE CAD. NO 23\",\n            \"mobileCountryCode\": \"169\",\n            \"mobileOperatorNo\": \"532\",\n            \"mobileNo\": \"987653210\",\n            \"ssnId\": null,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"processReferenceNo\": 47004904091,\n        \"receiver\": {\n            \"firstName\": \"AHMET\",\n            \"middleName\": null,\n            \"lastName\": \"SAVCI\",\n            \"fatherName\": \"DURAK\",\n            \"birthDateStr\": null,\n            \"nationalCountryCode\": \"TUR\",\n            \"birthCountryCode\": null,\n            \"identityTypeId\": null,\n            \"identityIssueDateStr\": null,\n            \"identityValidThruDateStr\": null,\n            \"identityNumber\": null,\n            \"identityIssueCountryCode\": \"TUR\",\n            \"addressCountryCode\": null,\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": null,\n            \"mobileCountryCode\": \"169\",\n            \"mobileOperatorNo\": \"538\",\n            \"mobileNo\": \"47458754\",\n            \"ssnId\": null,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"fromExternalFirmCode\": 123,\n        \"fromCountry\": \"TUR\",\n        \"receiverAmount\": 100,\n        \"receiverAmountCurrency\": \"USD\",\n        \"toExternalFirmCode\": 2,\n        \"toCountry\": \"RUS\"\n    }\n}"
-								}
-							]
+							"response": []
 						},
 						{
 							"name": "update-receiver-info-confirm",
@@ -1155,7 +1063,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									}
 								],
@@ -1172,106 +1080,7 @@
 									]
 								}
 							},
-							"response": [
-								{
-									"name": "update-receiver-info-confirm",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}",
-												"type": "text"
-											},
-											{
-												"key": "operation-id",
-												"value": "{{operation-id}}",
-												"type": "text"
-											},
-											{
-												"key": "externalfirm-user-code",
-												"value": "001",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{url}}/mt-api/V2/transferupdate/confirm",
-											"host": [
-												"{{url}}"
-											],
-											"path": [
-												"mt-api",
-												"V2",
-												"transferupdate",
-												"confirm"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Wed, 17 Jul 2024 13:40:22 GMT"
-										},
-										{
-											"key": "Expires",
-											"value": "0"
-										},
-										{
-											"key": "x-client-port",
-											"value": "58844"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "DENY"
-										},
-										{
-											"key": "operation-id",
-											"value": "30e4b624-1c11-4a2d-a72e-6a2de89d9ccc"
-										},
-										{
-											"key": "x-forwarded-for",
-											"value": "10.212.135.6"
-										},
-										{
-											"key": "Pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "operation-type",
-											"value": "EXECUTE"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, no-store, max-age=0, must-revalidate"
-										},
-										{
-											"key": "user-agent",
-											"value": "PostmanRuntime/7.39.0"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json;charset=UTF-8"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\",\n        \"messageCode\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"successFull\": true,\n        \"message\": \"Complated\"\n    }\n}"
-								}
-							]
+							"response": []
 						},
 						{
 							"name": "cancel-transfer-validate",
@@ -1297,13 +1106,13 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"cancellationReasonDescription\": \"canceldeneme\",\n  \"cancellationReasonId\": 3,\n  \"processReferenceNo\": 47004904091\n}",
+									"raw": "{\n  \"cancellationReasonDescription\": \"canceldeneme\",\n  \"cancellationReasonId\": 3,\n  \"processReferenceNo\": 47000530888\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1323,110 +1132,7 @@
 									]
 								}
 							},
-							"response": [
-								{
-									"name": "cancel-transfer-validate",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}",
-												"type": "text"
-											},
-											{
-												"key": "externalfirm-user-code",
-												"value": "001",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"cancellationReasonDescription\": \"canceldeneme\",\n  \"cancellationReasonId\": 3,\n  \"processReferenceNo\": 47004904091\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{url}}/mt-api/V2/transfercancel/validate",
-											"host": [
-												"{{url}}"
-											],
-											"path": [
-												"mt-api",
-												"V2",
-												"transfercancel",
-												"validate"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Wed, 17 Jul 2024 13:40:44 GMT"
-										},
-										{
-											"key": "Expires",
-											"value": "0"
-										},
-										{
-											"key": "x-client-port",
-											"value": "58844"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "DENY"
-										},
-										{
-											"key": "operation-id",
-											"value": "155a73ed-16e3-48e6-be8f-214606b5509a"
-										},
-										{
-											"key": "x-forwarded-for",
-											"value": "10.212.135.6"
-										},
-										{
-											"key": "Pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "operation-type",
-											"value": "VALIDATION"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, no-store, max-age=0, must-revalidate"
-										},
-										{
-											"key": "user-agent",
-											"value": "PostmanRuntime/7.39.0"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json;charset=UTF-8"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\",\n        \"messageCode\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"receiverAmount\": 100,\n        \"receiverAmountCurrency\": \"USD\",\n        \"fromCountry\": \"TUR\",\n        \"toCountry\": \"RUS\",\n        \"apiAgentTxnRefNo\": null,\n        \"externalFirmReferenceNo\": \"387396485\",\n        \"externalFirmReferenceNo2\": null,\n        \"fromExternalFirmCode\": 123,\n        \"toExternalFirmCode\": 2\n    }\n}"
-								}
-							]
+							"response": []
 						},
 						{
 							"name": "cancel-transfer-confirm",
@@ -1445,7 +1151,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									}
 								],
@@ -1462,106 +1168,7 @@
 									]
 								}
 							},
-							"response": [
-								{
-									"name": "cancel-transfer-confirm",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}",
-												"type": "text"
-											},
-											{
-												"key": "operation-id",
-												"value": "{{operation-id}}",
-												"type": "text"
-											},
-											{
-												"key": "externalfirm-user-code",
-												"value": "001",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{url}}/mt-api/V2/transfercancel/confirm",
-											"host": [
-												"{{url}}"
-											],
-											"path": [
-												"mt-api",
-												"V2",
-												"transfercancel",
-												"confirm"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Wed, 17 Jul 2024 13:40:59 GMT"
-										},
-										{
-											"key": "Expires",
-											"value": "0"
-										},
-										{
-											"key": "x-client-port",
-											"value": "58844"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "DENY"
-										},
-										{
-											"key": "operation-id",
-											"value": "155a73ed-16e3-48e6-be8f-214606b5509a"
-										},
-										{
-											"key": "x-forwarded-for",
-											"value": "10.212.135.6"
-										},
-										{
-											"key": "Pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "operation-type",
-											"value": "EXECUTE"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, no-store, max-age=0, must-revalidate"
-										},
-										{
-											"key": "user-agent",
-											"value": "PostmanRuntime/7.39.0"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json;charset=UTF-8"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\",\n        \"messageCode\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"apiAgentTxnRefNo\": null,\n        \"fromExternalFirmCode\": 123,\n        \"toExternalFirmCode\": 2,\n        \"externalFirmReferenceNo\": \"387396485\",\n        \"processReferenceNo\": 47004904091,\n        \"cancelComplated\": true\n    }\n}"
-								}
-							]
+							"response": []
 						},
 						{
 							"name": "cancel-reason-list",
@@ -1614,7 +1221,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/mt-api/V2/moneytransfercommon/bank-info/DEU",
+									"raw": "{{url}}/mt-api/V2/moneytransfercommon/bank-info/USA",
 									"host": [
 										"{{url}}"
 									],
@@ -1623,7 +1230,7 @@
 										"V2",
 										"moneytransfercommon",
 										"bank-info",
-										"DEU"
+										"USA"
 									]
 								}
 							},
@@ -1737,12 +1344,12 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001"
+										"value": "{{userCode}}"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"toCountryCode\": \"DEU\",\n    \"amount\": 50,\n    \"currency\": \"EUR\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 2,\n    \"apiAgentTxnRefNo\": \"TEST-REF-2\",\n    \"toBankId\": \"1\",\n    \"toAccountNumber\": \"DE92763500001061540443\",\n    \"comment\": \"deneme commenti\",\n    \"receiver\": {\n        \"firstName\": \"CEM\",\n        \"lastName\": \"OZER\",\n        \"middleName\": \"ALI\",\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"districtName\": \"New York\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\"\n    },\n    \"sender\": {\n        \"firstName\": \"SİNEM\",\n        \"middleName\": \"\",\n        \"lastName\": \"ÇOBANLI\",\n        \"fatherName\": \"MEHMET\",\n        \"nationalCountryCode\": \"DEU\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileOperatorNo\": 538,\n        \"mobileNo\": 8323113,\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"provinceName\": \"MUNICH\",\n        \"districtName\": \"distict\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2005\",\n        \"identityNumber\": \"0987654321\",\n        \"identityTypeId\": 2,\n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"jobCode\": 1,\n        \"ssnId\": null,\n        \"zipCode\": \"1234\"\n    }\n}",
+									"raw": "{\n    \"toCountryCode\": \"DEU\",\n    \"amount\": 50,\n    \"currency\": \"EUR\",\n    \"purposeCodeDefinitionId\": 14,\n    \"sourceOfIncomeDefinitionId\": 2,\n    \"apiAgentTxnRefNo\": \"1112Uzcard\",\n    \"toBankId\": \"1\",\n    \"toAccountNumber\": \"DE92763500001061540443\",\n    \"comment\": \"deneme commenti\",\n    \"receiver\": {\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"districtName\": \"New York\",\n        \"firstName\": \"Jane\",\n        \"lastName\": \"Smith\",\n        \"middleName\": \"Doe\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 47458754,\n        \"mobileOperatorNo\": 538,\n        \"nationalCountryCode\": \"TUR\",\n        \"provinceName\": \"New York\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1980\",\n        \"fatherName\": \"John Smith\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2000\",\n        \"identityNumber\": \"1234567890\",\n        \"identityTypeId\": 1,\n        \"identityValidThruDateStr\": \"01.01.2050\",\n        \"jobCode\": 1234,\n        \"ssnId\": \"123-45-6789\",\n        \"zipCode\": \"34912\"\n    },\n    \"sender\": {\n        \"address\": \"456 Park Avenue\",\n        \"addressCountryCode\": \"TUR\",\n        \"birthCountryCode\": \"TUR\",\n        \"birthDateStr\": \"01.01.1985\",\n        \"districtName\": \"Los Angeles\",\n        \"fatherName\": \"John Doe\",\n        \"firstName\": \"John\",\n        \"identityIssueCountryCode\": \"TUR\",\n        \"identityIssueDateStr\": \"01.01.2005\",\n        \"identityNumber\": \"0987654321\",\n        \"identityTypeId\": 2,\n        \"identityValidThruDateStr\": \"01.01.2055\",\n        \"jobCode\": 4321,\n        \"lastName\": \"Doe\",\n        \"middleName\": \"\",\n        \"mobileCountryCode\": \"TUR\",\n        \"mobileNo\": 987653210,\n        \"mobileOperatorNo\": 532,\n        \"nationalCountryCode\": \"RUS\",\n        \"provinceName\": \"California\",\n        \"ssnId\": \"13557545842\",\n        \"zipCode\": \"34912\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1775,7 +1382,7 @@
 											},
 											{
 												"key": "externalfirm-user-code",
-												"value": "001"
+												"value": "{{userCode}}"
 											}
 										],
 										"body": {
@@ -1884,7 +1491,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									}
 								],
@@ -1917,7 +1524,7 @@
 											},
 											{
 												"key": "externalfirm-user-code",
-												"value": "001"
+												"value": "{{userCode}}"
 											}
 										],
 										"url": {
@@ -2200,7 +1807,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									}
 								],
@@ -2239,7 +1846,7 @@
 											},
 											{
 												"key": "externalfirm-user-code",
-												"value": "001"
+												"value": "{{userCode}}"
 											}
 										],
 										"body": {
@@ -2352,7 +1959,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									}
 								],
@@ -2385,7 +1992,7 @@
 											},
 											{
 												"key": "externalfirm-user-code",
-												"value": "001"
+												"value": "{{userCode}}"
 											}
 										],
 										"url": {
@@ -2921,7 +2528,8 @@
 								"exec": [
 									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -2935,7 +2543,7 @@
 							},
 							{
 								"key": "externalfirm-user-code",
-								"value": "001",
+								"value": "{{userCode}}",
 								"type": "text"
 							}
 						],
@@ -2973,7 +2581,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001"
+										"value": "{{userCode}}"
 									}
 								],
 								"body": {
@@ -3065,7 +2673,8 @@
 								"exec": [
 									"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -3087,7 +2696,7 @@
 							},
 							{
 								"key": "externalfirm-user-code",
-								"value": "001",
+								"value": "{{userCode}}",
 								"type": "text"
 							}
 						],
@@ -3128,7 +2737,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001"
+										"value": "{{userCode}}"
 									}
 								],
 								"body": {
@@ -3238,7 +2847,7 @@
 							},
 							{
 								"key": "externalfirm-user-code",
-								"value": "001",
+								"value": "{{userCode}}",
 								"type": "text"
 							},
 							{
@@ -3273,7 +2882,7 @@
 									},
 									{
 										"key": "externalfirm-user-code",
-										"value": "001",
+										"value": "{{userCode}}",
 										"type": "text"
 									},
 									{
@@ -4478,15 +4087,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "{{url}}/eft-api/V2/transfer/check-status-by-ext-firm-id/TEST-1332",
 									"host": [
@@ -4610,15 +4210,6 @@
 										"value": "Bearer {{access_token}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "{{url}}/eft-api/V2/transfer/check-status-by-transfer-order-ref/47002764387",
 									"host": [
@@ -4695,15 +4286,6 @@
 										"value": "Bearer {{access_token}}"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "{{url}}/eft-api/V2/transfer/check-status-by-transfer-order-ref/47000993282",
 									"host": [
