@@ -563,6 +563,10 @@ Please do not call login before each request. Otherwise, you will get <code>HTTP
 <p><strong>Rate Limiter</strong></p>
 
 <p>This API has a rate limiter. If you exceed limits, you will get <code>HTTP 429 Too Many Requests</code> response.</p>
+
+<aside class="warning">
+  You need to fill externalfirm-user-code in request header. If it is not provided, please ask for.
+</aside>
 <h1 id='login'>Login</h1>
 <p>Access to all endpoints of the API requires authentication through Bearer Token.</p>
 
@@ -743,7 +747,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span>  <span class="s1">'{{url}}/mt-api/V2/moneytransfercommon/firm-info/{countryIsoCode}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div><h3 id='input'>Input</h3>
 <table><thead>
@@ -1061,7 +1065,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneysend/to-name/validate'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1307,7 +1311,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneysend/confirm'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'operation-id: {{operation_id}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code:{{userCode}}'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1366,7 +1370,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/transferupdate/validate'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1500,7 +1504,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/transferupdate/confirm'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'operation-id: {{operation_id}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code:{{userCode}}'</span>
 </code></pre></div><h4 id='input-headers-2'>Input (Headers)</h4>
 <table><thead>
 <tr>
@@ -1592,7 +1596,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/transfercancel/validate'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1707,7 +1711,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/transfercancel/confirm'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'operation-id: {{operation_id}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span>
 </code></pre></div><h4 id='input-headers-3'>Input (Headers)</h4>
 <table><thead>
 <tr>
@@ -1839,7 +1843,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 </div>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneysend/to-account/validate'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2076,7 +2080,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneysend/confirm'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'operation-id: {{operation_id}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2180,7 +2184,7 @@ Correct wallet needs to be send according to country iso code.</p>
 </div>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneysend/to-wallet/validate'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2413,7 +2417,7 @@ Correct wallet needs to be send according to country iso code.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneysend/confirm'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'operation-id: {{operation_id}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2910,7 +2914,7 @@ Validation is needed to be called before the payment is confirmed.</p>
 <p><code>POST /mt-api/V2/moneypayment/search</code> <strong>request</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneypayment/search'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'invoker: API'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -3057,7 +3061,7 @@ Validation is needed to be called before the payment is confirmed.</p>
   </div>
 </div>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneypayment/validate'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 
@@ -3279,7 +3283,7 @@ Validation is needed to be called before the payment is confirmed.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneypayment/confirm'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'operation-id: {{operation_id}}'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: 001'</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
