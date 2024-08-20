@@ -467,6 +467,9 @@
                     <a href="#get-eft-refunded-transfer-list" class="toc-h2 toc-link" data-title="Get EFT Refunded Transfer List">Get EFT Refunded Transfer List</a>
                   </li>
                   <li>
+                    <a href="#webhook-new" class="toc-h2 toc-link" data-title="Webhook (NEW)">Webhook (NEW)</a>
+                  </li>
+                  <li>
                     <a href="#eft-models" class="toc-h2 toc-link" data-title="EFT Models">EFT Models</a>
                   </li>
               </ul>
@@ -3876,10 +3879,11 @@ Validation is needed to be called before the payment is confirmed.</p>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/eft-api/V2/transfer/create</h6>
-  </div>
+  <i class="label label-post">POST</i>
+  <h6>/eft-api/V2/transfer/create</h6>
 </div>
+
+<p></div></p>
 
 <blockquote>
 <p><code>POST /eft-api/V2/transfer/create</code> <strong>request</strong></p>
@@ -3970,26 +3974,24 @@ Validation is needed to be called before the payment is confirmed.</p>
 <p><code>POST /eft-api/V2/transfer/create</code> <strong>response</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-
-    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
+  </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"transferOrderRefId"</span><span class="p">:</span><span class="w"> </span><span class="mi">47000594670</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"statusName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"statusReasonMessageCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"statusReasonMessageDetail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"transferOrderRefId"</span><span class="p">:</span><span class="w"> </span><span class="mi">47000594670</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"statusName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"statusReasonMessageCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"statusReasonMessageDetail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"senderExtFirmRefId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST233"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"transferInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-
+    </span><span class="nl">"senderExtFirmRefId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST233"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transferInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -4024,21 +4026,22 @@ Validation is needed to be called before the payment is confirmed.</p>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/eft-api/V2/transfer/check-status-by-ext-firm-id/{senderExtFirmRefId}</h6>
-  </div>
+  <i class="label label-get">GET</i>
+  <h6>/eft-api/V2/transfer/check-status-by-ext-firm-id/{senderExtFirmRefId}</h6>
 </div>
+
+<p></div></p>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/eft-api/V2/transfer/check-status-by-transfer-order-ref/{transferOrderRefId}</h6>
-  </div>
+  <i class="label label-get">GET</i>
+  <h6>/eft-api/V2/transfer/check-status-by-transfer-order-ref/{transferOrderRefId}</h6>
 </div>
+
+<p></div></p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/transfer/check-status-by-ext-firm-id/{extFirmRefId} | {transferOrderRefId}\
 --header '</span>Authorization: Bearer <span class="o">{{</span>auth_token<span class="o">}}</span><span class="s1">' \
 --header '</span>Content-Type: application/json<span class="s1">' \
-
 </span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4147,7 +4150,7 @@ Validation is needed to be called before the payment is confirmed.</p>
 
 <ul>
 <li>Use the <code>POST /eft-api/V2/transfer/get-transfer-list</code> endpoint with an order date range to retrieve a list of all your orders.</li>
-<li>Query the status of a specific transfer using the following endpoints:
+<li><p>Query the status of a specific transfer using the following endpoints:</p>
 
 <ul>
 <li><code>GET /eft-api/V2/transfer/check-status-by-ext-firm-id/{extFirmRefId}</code></li>
@@ -4167,11 +4170,12 @@ Validation is needed to be called before the payment is confirmed.</p>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/eft-api/V2/transfer/cancel</h6>
-  </div>
+  <i class="label label-post">POST</i>
+  <h6>/eft-api/V2/transfer/cancel</h6>
 </div>
-<h4 id='input-parameter'>Input (Parameter)</h4>
+
+<p></div></p>
+<h3 id='input-parameter'>Input (Parameter)</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4189,45 +4193,43 @@ Validation is needed to be called before the payment is confirmed.</p>
 </tbody></table>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/eft-api/V2/transfer/cancel?transferOrderRefId=&lt;long&gt;'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
-
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"cancelledTransferInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"transferOrderRefId"</span><span class="p">:</span><span class="w"> </span><span class="mi">47000594670</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"transferDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-17T00:00:00.000+0300"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deneme"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRY"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"transferType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TO_IBAN"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"transferReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FINANCIAL"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"commission"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"commissionCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"receiverBankCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"receiverBranchCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"receiverAccount"</span><span class="p">:</span><span class="s2">"EftAccountInfo"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"senderInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EftPersonInfo"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"receiverInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EftPersonInfo"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"collectionRefId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"statusName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancel"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancel"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"statusReasonMessageCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"statusReasonMessageDetail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"senderExtFirmRefId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST233"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"cancellationDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"cancelledTransferInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transferOrderRefId"</span><span class="p">:</span><span class="w"> </span><span class="mi">47000594670</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"transferDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-17T00:00:00.000+0300"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deneme"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRY"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"transferType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TO_IBAN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"transferReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FINANCIAL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"commission"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"commissionCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiverBankCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiverBranchCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiverAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EftAccountInfo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"senderInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EftPersonInfo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiverInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EftPersonInfo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"collectionRefId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statusName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancel"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancel"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statusReasonMessageCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"statusReasonMessageDetail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"senderExtFirmRefId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST233"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cancellationDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
-</span></code></pre></div><h4 id='output-3'>Output</h4>
+</span></code></pre></div><h3 id='output-3'>Output</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4361,10 +4363,11 @@ Validation is needed to be called before the payment is confirmed.</p>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/eft-api/V2/transfer/get-transfer-list</h6>
-  </div>
+  <i class="label label-post">POST</i>
+  <h6>/eft-api/V2/transfer/get-transfer-list</h6>
 </div>
+
+<p></div></p>
 
 <blockquote>
 <p><code>POST /eft-api/V2/transfer/get-transfer-list</code></p>
@@ -4405,7 +4408,7 @@ Validation is needed to be called before the payment is confirmed.</p>
 <td>status code filter for transfers</td>
 </tr>
 </tbody></table>
-<h4 id='output-4'>Output</h4>
+<h3 id='output-4'>Output</h3>
 <blockquote>
 <p><code>POST /eft-api/V2/transfer/get-transfer-list</code> <strong>response</strong></p>
 </blockquote>
@@ -4445,7 +4448,7 @@ Validation is needed to be called before the payment is confirmed.</p>
       </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+      </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
@@ -4512,7 +4515,7 @@ Validation is needed to be called before the payment is confirmed.</p>
 <tr>
 <td>receiverInfo</td>
 <td>(<a href="#EftPersonInfo">EftPerson</a>)</td>
-<td>Transfer receiver information  (<a href="#EftPersonInfo">EftPerson</a>) object of receiver</td>
+<td>Transfer receiver information (<a href="#EftPersonInfo">EftPerson</a>) object of receiver</td>
 </tr>
 <tr>
 <td>senderExtFirmRefId</td>
@@ -4522,7 +4525,7 @@ Validation is needed to be called before the payment is confirmed.</p>
 <tr>
 <td>senderInfo</td>
 <td>(<a href="#EftPersonInfo">EftPerson</a>)</td>
-<td>Transfer receiver information  (<a href="#EftPersonInfo">EftPerson</a>) object of receiver</td>
+<td>Transfer receiver information (<a href="#EftPersonInfo">EftPerson</a>) object of receiver</td>
 </tr>
 <tr>
 <td>status</td>
@@ -4580,10 +4583,11 @@ Validation is needed to be called before the payment is confirmed.</p>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/eft-api/V2/transfer/get-refund-transfer-list</h6>
-  </div>
+  <i class="label label-post">POST</i>
+  <h6>/eft-api/V2/transfer/get-refund-transfer-list</h6>
 </div>
+
+<p></div></p>
 
 <blockquote>
 <p><code>POST /eft-api/V2/transfer/get-refund-transfer-list</code></p>
@@ -4591,13 +4595,12 @@ Validation is needed to be called before the payment is confirmed.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/eft-api/V2/transfer/get-refund-transfer-list'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'
 Authorization: Bearer {{auth_token}}'</span>
-</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
-</span><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-18T06:26:10.274Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-18T06:26:10.274Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='output-5'>Output</h4>
+</span></code></pre></div><h3 id='output-5'>Output</h3>
 <blockquote>
 <p><code>POST /eft-api/V2/transfer/get-refund-transfer-list</code> <strong>response</strong></p>
 </blockquote>
@@ -4639,7 +4642,7 @@ Authorization: Bearer {{auth_token}}'</span>
       </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+      </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
@@ -4706,7 +4709,7 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td>receiverInfo</td>
 <td>(<a href="#eftpersoninfo">EftPerson</a>)</td>
-<td>Transfer receiver information  (<a href="#eftpersoninfo">EftPerson</a>) object of receiver</td>
+<td>Transfer receiver information (<a href="#eftpersoninfo">EftPerson</a>) object of receiver</td>
 </tr>
 <tr>
 <td>refundDate</td>
@@ -4726,7 +4729,7 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td>senderInfo</td>
 <td>(<a href="#eftpersoninfo">EftPerson</a>)</td>
-<td>Transfer sender information  (<a href="#eftpersoninfo">EftPerson</a>) object of sender</td>
+<td>Transfer sender information (<a href="#eftpersoninfo">EftPerson</a>) object of sender</td>
 </tr>
 <tr>
 <td>status</td>
@@ -4779,6 +4782,97 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>Transfer type</td>
 </tr>
 </tbody></table>
+<h2 id='webhook-new'>Webhook (NEW)</h2>
+<p>We have a webhook for EFT status notification. If you want to use, You need to implement endpoint like below</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+  <i class="label label-post">POST</i>
+  <h6>/payporter/eft-api/notify-status</h6>
+</div>
+
+<p></div></p>
+<h3 id='secure-webhook-implementation'>Secure Webhook Implementation</h3>
+<p>For the secure webhook implementation, we utilize the <code>HmacSHA256</code> algorithm for hashing. The output format for the hashed value is in hexadecimal (hex).</p>
+<h4 id='secret-value'>Secret Value</h4>
+<p>A secret value, which we will provide, is used during the hashing process. This secret value ensures the security and integrity of the webhook.</p>
+<h4 id='hashing-process'>Hashing Process</h4>
+<p>The hash value included in the request is generated by hashing the entire request using the <code>HmacSHA256</code> algorithm with the provided secret. This process ensures that the request has not been tampered with.</p>
+<h4 id='request-header'>Request Header</h4>
+<p>The resulting hashed value is included in the request under the <code>&quot;request-sign&quot;</code> header.</p>
+
+<ul>
+<li>If everything is OK, then we will return HTTPS status 200 and success = true.</li>
+<li>If SENDER_REF_NOT_FOUND, ORDER_REF_NOT_FOUND, then return HTTPS status 404 and success = false.</li>
+<li>If STATUS_NOT_VALID returns HTTPS status 400 and success = false</li>
+<li>In other cases, HTTP status 500 and success=false will be returned</li>
+</ul>
+
+<p>Request :</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>type</th>
+<th>explanation</th>
+<th>example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>senderExtFirmRefId</td>
+<td>string</td>
+<td>Sender external firm reference id</td>
+<td>P2P_1212121</td>
+</tr>
+<tr>
+<td>transferOrderRefId</td>
+<td>number</td>
+<td>eft order reference id</td>
+<td>47000000000</td>
+</tr>
+<tr>
+<td>status</td>
+<td>number</td>
+<td>Status of the eft</td>
+<td>20(COMPLETE), 40(REJECTED), 50(REFUND)</td>
+</tr>
+<tr>
+<td>messageCode</td>
+<td>string</td>
+<td>Full with rejected/refunded reason code</td>
+<td>EFT_WRONG_FEC_FOR_ACCOUNT</td>
+</tr>
+<tr>
+<td>messageDescription</td>
+<td>string</td>
+<td>May be full if an extra description exists</td>
+<td>The currency sent does not match with the beneficiary account.</td>
+</tr>
+</tbody></table>
+
+<p>Response :</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>type</th>
+<th>explanation</th>
+<th>example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>notification status</td>
+<td>false/true</td>
+</tr>
+<tr>
+<td>errorCode</td>
+<td>string</td>
+<td>error code if notification is failed</td>
+<td>SENDER_REF_NOT_FOUND</td>
+</tr>
+</tbody></table>
 <h2 id='eft-models'>EFT Models</h2><h3 id='eftpersoninfo'>EftPersonInfo</h3>
 <p>Class to keep person information for Sender and Receiver.</p>
 
@@ -4824,7 +4918,7 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>identityNumber</td>
 <td>number</td>
 <td>Sender</td>
-<td>Person identity number    passport/social security number/identity number</td>
+<td>Person identity number passport/social security number/identity number</td>
 </tr>
 <tr>
 <td>phoneNumber</td>
@@ -4866,7 +4960,7 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>addressCountryCode</td>
 <td>string</td>
 <td>Sender</td>
-<td>Person address country code  <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+<td>Person address country code <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
 </tr>
 <tr>
 <td>company</td>
@@ -4883,8 +4977,7 @@ Authorization: Bearer {{auth_token}}'</span>
 </tbody></table>
 <h3 id='eftaccountinfo'>EftAccountInfo</h3>
 <p>Object to keep account information</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
-</span><span class="err">AccountInfo</span><span class="w"> </span><span class="err">example:</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">AccountInfo</span><span class="w"> </span><span class="err">example:</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"accountNickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"accountNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IBAN: TR123456789012345678901234 , Credit Card: 5269750045132501, Spesific Number: 12345678"</span><span class="p">,</span><span class="w">
@@ -4999,16 +5092,13 @@ Authorization: Bearer {{auth_token}}'</span>
 </tr>
 </tbody></table>
 <h3 id='eft-error-codes'>Eft Error Codes</h3>
-<aside class="warning">
-  <strong>COMMAND_EXCEPTION</strong> :  When these kind of errors received, the orders need to be checked by consumer.  Just query the order. If it’s been received by PayPorter then you get it in the response list. You do not need to send it again. If it’s not existing on PayPorter System, then you can resend the order with the same reference number.
+<aside class="warning"><strong>COMMAND_EXCEPTION</strong> :  When these kind of errors received, the orders need to be checked by consumer.  Just query the order. If it’s been received by PayPorter then you get it in the response list. You do not need to send it again. If it’s not existing on PayPorter System, then you can resend the order with the same reference number.
 </aside>
 
-<aside class="warning">
-  <strong>UNEXPECTED_SYSTEM_ERROR</strong> : When these kind of errors received, the orders need to be checked by consumer.  Just query the order. If it’s been received by PayPorter then you get it in the response list. You do not need to send it again. If it’s not existing on PayPorter System, then you can resend the order with the same reference number. 
+<aside class="warning"><strong>UNEXPECTED_SYSTEM_ERROR</strong> : When these kind of errors received, the orders need to be checked by consumer.  Just query the order. If it’s been received by PayPorter then you get it in the response list. You do not need to send it again. If it’s not existing on PayPorter System, then you can resend the order with the same reference number. 
 </aside>
 
-<aside class="warning">
-  <strong>EFT_DEMAND_FROM_EXT_REF_CODE_PREVIOUS_DEMANDS_SENDEND</strong> : this order has already been received by PayPorter. You can query the order to get the latest status. Be sure your demand reference number is unique.
+<aside class="warning"><strong>EFT_DEMAND_FROM_EXT_REF_CODE_PREVIOUS_DEMANDS_SENDEND</strong> : this order has already been received by PayPorter. You can query the order to get the latest status. Be sure your demand reference number is unique.
 </aside>
 
 <table><thead>
@@ -5095,7 +5185,7 @@ Authorization: Bearer {{auth_token}}'</span>
 </tr>
 <tr>
 <td>EFT_API_SENDER_NAME_MUST_HAVE_VALUE</td>
-<td>Sender name and  surname can not be empty or less than minimum required length.</td>
+<td>Sender name and surname can not be empty or less than minimum required length.</td>
 </tr>
 <tr>
 <td>EFT_API_TRANSFER_TYPE_MUST_HAVE_VALUE</td>
@@ -5203,7 +5293,7 @@ Authorization: Bearer {{auth_token}}'</span>
 </tr>
 <tr>
 <td>EFT_SENDER_IDENTY_NO_MUST_HAVE_VALUE</td>
-<td>The  sender identity number can not be empty</td>
+<td>The sender identity number can not be empty</td>
 </tr>
 <tr>
 <td>EFT_SENDER_PHONE_NO_MUST_HAVE_VALUE</td>
