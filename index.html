@@ -4792,6 +4792,10 @@ Authorization: Bearer {{auth_token}}'</span>
 </div>
 
 <p></div></p>
+
+<aside class="warning">
+  <strong>IMPORTANT!</strong> Webhook needs to be idempotent. We may notify the same status multiple times in some cases (timeout, system error)
+</aside>
 <h3 id='secure-webhook-implementation'>Secure Webhook Implementation</h3>
 <p>For the secure webhook implementation, we utilize the <code>HmacSHA256</code> algorithm for hashing. The output format for the hashed value is in hexadecimal (hex).</p>
 <h4 id='secret-value'>Secret Value</h4>
@@ -6283,12 +6287,17 @@ Authorization: Bearer {{auth_token}}'</span>
 </tbody></table>
 <h1 id='release-notes'>Release Notes</h1>
 <ul>
-<li>16.07.2024 Update
+<li><p>16.07.2024 Update</p>
 
 <ul>
 <li>Transfer types seperated in menu.</li>
 <li>Settlements endpoiints added.</li>
 <li>New Postman Collection added.</li>
+</ul></li>
+<li><p>22.08.2024 Update</p>
+
+<ul>
+<li>Webhook section added for EFT</li>
 </ul></li>
 </ul>
 
