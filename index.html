@@ -2154,7 +2154,8 @@ Correct wallet needs to be send according to country iso code.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
      </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"walletName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+     </span><span class="nl">"walletName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"countryIsoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARE"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -2175,7 +2176,16 @@ Correct wallet needs to be send according to country iso code.</p>
 <td>string</td>
 <td>Name of wallet</td>
 </tr>
+<tr>
+<td>countryIsoCode</td>
+<td>string</td>
+<td>Country iso code</td>
+</tr>
 </tbody></table>
+
+<aside class="warning">
+  CountryIsoCode is only for information. It's not required in request. Wallet id should be used for transfer.
+</aside>
 <h2 id='validate-to-wallet'>Validate - to Wallet</h2>
 <p>This endpoint validates the transfer to wallet request</p>
 
