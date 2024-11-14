@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "9dd4b585-431d-4589-bbf6-e668ea674e24",
-		"name": "Payporter Api Collection Doc",
+		"_postman_id": "10cd6fc8-8503-475b-9c2f-e06e579821eb",
+		"name": "Payporter Api Collection Doc Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "448761"
 	},
@@ -20,7 +20,8 @@
 									"pm.environment.set(\"access_token\", jsonData.responseObject[\"access_token\"]);",
 									"pm.environment.set(\"gecerlilik\", jsonData.responseObject[\"expires_in\"]);"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -47,7 +48,7 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "ttestpay",
+									"value": "username",
 									"type": "text"
 								},
 								{
@@ -3884,7 +3885,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"amount\": 150.23,\n    \"comment\": \"string\",\n    \"currency\": \"TRY\",\n    \"receiverAccount\": \"TR850003200037700000028613\",\n    \"senderExtFirmRefId\": \"TEST-132\",\n    \"transferReason\": \"COMMERCIAL_PAYMENTS\",\n    \"transferType\": \"TO_IBAN\",\n    \"receiverInfo\": {\n        \"firstName\": \"DERYA\",\n        \"lastName\": \"TEKSEN\"\n    },\n    \"senderInfo\": {\n        \"birthDay\": \"1995-07-18\",\n        \"birthPlace\": \"ROMANIA\",\n        \"middleName\": \"JUNIOR\",\n        \"firstName\": \"JOHN\",\n        \"lastName\": \"DOE\",\n        \"address\": \"5 th Avenue 1 34096 FATIH Istanbul\",\n        \"addressCountryCode\": \"TUR\",\n        \"company\": false,\n        \"countryPhoneCode\": 90,\n        \"phoneNumber\": 5551234567,\n        \"email\": \"perso_receivern@email.com\",\n        \"identityNumber\": \"57097259400\"\n    }\n}"
+							"raw": "{\n    \"amount\": 150.23,\n    \"comment\": \"string\",\n    \"currency\": \"TRY\",\n    \"receiverAccount\": \"TR850003200037700000028613\",\n    \"senderExtFirmRefId\": \"TEST-132\",\n    \"transferReason\": \"COMMERCIAL_PAYMENTS\",\n    \"transferType\": \"TO_IBAN\",\n    \"exchangeId\": null,\n    \"receiverInfo\": {\n        \"firstName\": \"DERYA\",\n        \"lastName\": \"TEKSEN\"\n    },\n    \"senderInfo\": {\n        \"birthDay\": \"1995-07-18\",\n        \"birthPlace\": \"ROMANIA\",\n        \"middleName\": \"JUNIOR\",\n        \"firstName\": \"Kenan\",\n        \"lastName\": \"Yilmaz\",\n        \"address\": \"5 th Avenue 1 34096 FATIH Istanbul\",\n        \"addressCountryCode\": \"TUR\",\n        \"company\": false,\n        \"countryPhoneCode\": 90,\n        \"phoneNumber\": 5551234567,\n        \"email\": \"perso_receivern@email.com\",\n        \"identityNumber\": \"57097259400\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{url}}/eft-api/V2/transfer/create",
@@ -3994,6 +3995,145 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"transferOrderRefId\": 47003573358,\n        \"status\": {\n            \"statusCode\": 10,\n            \"statusName\": \"Yeni\",\n            \"statusDescription\": \"NEW\",\n            \"statusReasonMessageCode\": null,\n            \"statusReasonMessageDetail\": null\n        },\n        \"senderExtFirmRefId\": \"TEST-1\",\n        \"transferInfo\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "exchange",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// JSON response'ı parse ediyoruz",
+									"var jsonData = pm.response.json();",
+									"",
+									"// exchangeId'yi environment değişkenine atıyoruz",
+									"pm.environment.set(\"exchangeId\", jsonData.responseObject.exchangeId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n   \"amountForeign\": 1,\n   \"currencyForeign\": \"USD\",\n   \"amountTRY\": null,\n   \"commercial\": false\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/exchange",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"exchange"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "exchange",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n   \"amountForeign\": 1,\n   \"currencyForeign\": \"USD\",\n   \"amountTRY\": null,\n   \"commercial\": false\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/eft-api/V2/exchange",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"eft-api",
+										"V2",
+										"exchange"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 14 Nov 2024 06:47:18 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "x-client-port",
+									"value": "57131"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "x-forwarded-for",
+									"value": "10.212.135.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.42.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\",\n        \"messageCode\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"exchangeId\": \"1f766c10-8031-48c7-bcd1-4b13e1d3af1d\",\n        \"amountForeign\": 1,\n        \"currencyForeign\": \"USD\",\n        \"amountTRY\": 30.92,\n        \"exchangeRate\": 30.9156,\n        \"commercial\": false\n    }\n}"
 						}
 					]
 				},
