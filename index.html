@@ -1081,6 +1081,7 @@ After validation is done, confirm is need to be called to create the transfer.</
   </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payoutCurrency"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sourceOfIncomeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"relationshipWithSenderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1149,6 +1150,12 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>true</td>
 <td>number</td>
 <td>Money source of income id from <a href="#source-of-income-list">Soruce of Income List</a></td>
+</tr>
+<tr>
+<td>relationshipWithSenderId</td>
+<td>true</td>
+<td>number</td>
+<td>Relationship with sender id from <a href="#relationship-with-sender">Relationship List</a></td>
 </tr>
 <tr>
 <td>toCityId</td>
@@ -1856,7 +1863,7 @@ After validation is done, confirm is need to be called to create the transfer.</
   </span><span class="nl">"purposeCodeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"relationshipWithSender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"relationshipWithSenderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sourceOfIncomeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1937,7 +1944,7 @@ After validation is done, confirm is need to be called to create the transfer.</
 <td>relationshipWithSenderId</td>
 <td>false</td>
 <td>number</td>
-<td>Relationship with sender</td>
+<td>Relationship with sender id from <a href="/#relationship-with-sender">Relationship List</a></td>
 </tr>
 <tr>
 <td>receiver</td>
@@ -2207,7 +2214,7 @@ Correct wallet needs to be send according to country iso code.</p>
   </span><span class="nl">"purposeCodeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"relationshipWithSender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"relationshipWithSenderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sourceOfIncomeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"toCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2259,12 +2266,6 @@ Correct wallet needs to be send according to country iso code.</p>
 <td>Receiver amount foreign currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a></td>
 </tr>
 <tr>
-<td>relationshipWithSender</td>
-<td>true</td>
-<td>string</td>
-<td>Relationship with sender</td>
-</tr>
-<tr>
 <td>sender</td>
 <td>true</td>
 <td>object</td>
@@ -2275,6 +2276,12 @@ Correct wallet needs to be send according to country iso code.</p>
 <td>true</td>
 <td>number</td>
 <td>The source of money</td>
+</tr>
+<tr>
+<td>relationshipWithSenderId</td>
+<td>false</td>
+<td>number</td>
+<td>Relationship with sender id from <a href="/#relationship-with-sender">Relationship List</a></td>
 </tr>
 <tr>
 <td>toCountryCode</td>
@@ -3677,7 +3684,58 @@ Validation is needed to be called before the payment is confirmed.</p>
 <td>Job name in English</td>
 </tr>
 </tbody></table>
-<h2 id='relationship-with-sender'>Relationship with Sender</h2><h1 id='resources'>Resources</h1><h2 id='person'>Person</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h2 id='relationship-with-sender'>Relationship with Sender</h2>
+<p>Returns list of relationships with sender</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/mt-api/V2/moneytransfercommon/relationship-with-sender-list</h6>
+  </div>
+</div>
+
+<blockquote>
+<p><code>GET /mt-api/V2/moneytransfercommon/relationship-with-sender-list</code> <strong>request</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>
+curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneytransfercommon/relationship-with-sender-list'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'
+</span></code></pre></div>
+<blockquote>
+<p><code>GET /mt-api/V2/moneytransfercommon/relationship-with-sender-list</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>Id of relationship</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>Code of relationship</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Description of relation</td>
+</tr>
+</tbody></table>
+<h1 id='resources'>Resources</h1><h2 id='person'>Person</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"addressCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"birthCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
