@@ -384,6 +384,20 @@
               </ul>
           </li>
           <li>
+            <a href="#transfer-to-card" class="toc-h1 toc-link" data-title="Transfer to Card">Transfer to Card</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#card-list" class="toc-h2 toc-link" data-title="Card List">Card List</a>
+                  </li>
+                  <li>
+                    <a href="#validate-to-card" class="toc-h2 toc-link" data-title="Validate - to Card">Validate - to Card</a>
+                  </li>
+                  <li>
+                    <a href="#confirm-to-card" class="toc-h2 toc-link" data-title="Confirm - to Card">Confirm - to Card</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#transfer-details" class="toc-h1 toc-link" data-title="Transfer Details">Transfer Details</a>
               <ul class="toc-list-h2">
                   <li>
@@ -391,6 +405,26 @@
                   </li>
                   <li>
                     <a href="#get-transfer-details-by-api-txn" class="toc-h2 toc-link" data-title="Get Transfer Details By Api Txn">Get Transfer Details By Api Txn</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#fields-api" class="toc-h1 toc-link" data-title="Fields API">Fields API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#to-name-fields" class="toc-h2 toc-link" data-title="to-name Fields">to-name Fields</a>
+                  </li>
+                  <li>
+                    <a href="#to-account-fields" class="toc-h2 toc-link" data-title="to-account Fields">to-account Fields</a>
+                  </li>
+                  <li>
+                    <a href="#to-wallet-fields" class="toc-h2 toc-link" data-title="to-wallet Fields">to-wallet Fields</a>
+                  </li>
+                  <li>
+                    <a href="#to-card-fields" class="toc-h2 toc-link" data-title="to-card Fields">to-card Fields</a>
+                  </li>
+                  <li>
+                    <a href="#fields-response" class="toc-h2 toc-link" data-title="Fields Response">Fields Response</a>
                   </li>
               </ul>
           </li>
@@ -2575,6 +2609,357 @@ Correct wallet needs to be send according to country iso code.</p>
 <td>Masked wallet holder name</td>
 </tr>
 </tbody></table>
+<h1 id='transfer-to-card'>Transfer to Card</h1>
+<p>This section describes the endpoints for transfer to card. </p>
+<h2 id='card-list'>Card List</h2>
+<p>Returns list of all valid card types. It contains send currency information for each card type.</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/mt-api/V2/moneytransfercommon/card-info-list</h6>
+  </div>
+</div>
+
+<blockquote>
+<p><code>GET /mt-api/V2/moneytransfercommon/card-info-list</code> <strong>request</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneytransfercommon/card-info-list'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'
+Authorization: Bearer {{auth_token}}'</span>
+</code></pre></div>
+<blockquote>
+<p><code>GET /mt-api/V2/moneytransfercommon/wallet-info-list</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+
+  </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"cardTypeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KORTI"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cardTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KORTI MILLI KART"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"countryIsoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TJK"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cardTypeId</td>
+<td>string</td>
+<td>Card type id</td>
+</tr>
+<tr>
+<td>cardTypeName</td>
+<td>string</td>
+<td>Card type name</td>
+</tr>
+<tr>
+<td>countryIsoCode</td>
+<td>string</td>
+<td>Country iso code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+</tr>
+<tr>
+<td>currencies</td>
+<td>array</td>
+<td>List of currencies that can be sent to card type</td>
+</tr>
+</tbody></table>
+<h2 id='validate-to-card'>Validate - to Card</h2>
+<p>This endpoint validates the transfer to wallet request</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/mt-api/V2/moneysend/to-card/validate</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneysend/to-wallet/validate'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"purposeCodeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"relationshipWithSenderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sourceOfIncomeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"toCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='input'>Input</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>true</td>
+<td>number</td>
+<td>Transaction amount</td>
+</tr>
+<tr>
+<td>apiAgentTxnRefNo</td>
+<td>true</td>
+<td>string(50)</td>
+<td>Agent transaction unique reference</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>false</td>
+<td>string(250)</td>
+<td>Comment of transfer</td>
+</tr>
+<tr>
+<td>purposeCodeDefinitionId</td>
+<td>true</td>
+<td>number</td>
+<td>The reason for sending money</td>
+</tr>
+<tr>
+<td>receiver</td>
+<td>true</td>
+<td>object</td>
+<td>(<a href="#person">Person</a>) object of receiver</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>string(3)</td>
+<td>Receiver amount foreign currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a></td>
+</tr>
+<tr>
+<td>sender</td>
+<td>true</td>
+<td>object</td>
+<td>(<a href="#person">Person</a>) object of sender</td>
+</tr>
+<tr>
+<td>sourceOfIncomeDefinitionId</td>
+<td>true</td>
+<td>number</td>
+<td>The source of money</td>
+</tr>
+<tr>
+<td>relationshipWithSenderId</td>
+<td>false</td>
+<td>number</td>
+<td>Relationship with sender id from <a href="/#relationship-with-sender">Relationship List</a></td>
+</tr>
+<tr>
+<td>toCountryCode</td>
+<td>true</td>
+<td>string(3)</td>
+<td>Country where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+</tr>
+<tr>
+<td>cardType</td>
+<td>true</td>
+<td>string</td>
+<td>Card type id from (<a href="#card-list">Card Type List</a>)</td>
+</tr>
+<tr>
+<td>cardNumber</td>
+<td>true</td>
+<td>string(16)</td>
+<td>Card number</td>
+</tr>
+</tbody></table>
+<h4 id='output'>Output</h4><h4 id='headers'>Headers</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operation-id</td>
+<td>true</td>
+<td>string</td>
+<td>operation-id of transfer used for further operations</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><code>POST /mt-api/V2/moneysend/to-wallet/validate</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amountLocal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amountLocalExchangeRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"feeAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"feeAmountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fromCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiverPayOutAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiverPayOutAmountExchangeRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receiverPayoutAmountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"toCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"restHeader"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 CONTINUE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"statusCodeValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>Transaction amount</td>
+</tr>
+<tr>
+<td>apiAgentTxnRefNo</td>
+<td>string</td>
+<td>Agent transaction unique reference</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Transaction amount foreign currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a></td>
+</tr>
+<tr>
+<td>feeAmount</td>
+<td>number</td>
+<td>Fee amount</td>
+</tr>
+<tr>
+<td>feeAmountCurrency</td>
+<td>string</td>
+<td>Fee amount foreign currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a></td>
+</tr>
+<tr>
+<td>fromCountry</td>
+<td>string</td>
+<td>Country where money will be sent from in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+</tr>
+<tr>
+<td>receiverPayOutAmount</td>
+<td>number</td>
+<td>Receiver pay out amount</td>
+</tr>
+<tr>
+<td>receiverPayOutAmountExchangeRate</td>
+<td>number</td>
+<td>Receiver pay out amount exchange rate</td>
+</tr>
+<tr>
+<td>receiverPayoutAmountCurrency</td>
+<td>string</td>
+<td>Receiver payout amount currency</td>
+</tr>
+<tr>
+<td>toCountry</td>
+<td>string</td>
+<td>Country where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+</tr>
+</tbody></table>
+<h2 id='confirm-to-card'>Confirm - to Card</h2>
+<p>This endpoint confirms the all transfer request</p>
+
+<p>You need to use operation-id from validate request in this request.</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/mt-api/V2/moneysend/confirm</h6>
+  </div>
+</div>
+<h4 id='input-headers'>Input (Headers)</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operation-id</td>
+<td>true</td>
+<td>string</td>
+<td>operation-id retrieved from validation request</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{url}}/mt-api/V2/moneysend/confirm'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{auth_token}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'operation-id: {{operation_id}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'externalfirm-user-code: {{userCode}}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"apiAgentTxnRefNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"processReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalFirmReferenceNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalFirmReferenceNo2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='output-2'>Output</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>apiAgentTxnRefNo</td>
+<td>string</td>
+<td>Agent transaction unique reference</td>
+</tr>
+<tr>
+<td>processReferenceNo</td>
+<td>number</td>
+<td>Process reference number</td>
+</tr>
+<tr>
+<td>externalFirmReferenceNo</td>
+<td>string</td>
+<td>External firm reference number</td>
+</tr>
+<tr>
+<td>externalFirmReferenceNo2</td>
+<td>string</td>
+<td>External firm reference number 2</td>
+</tr>
+</tbody></table>
 <h1 id='transfer-details'>Transfer Details</h1>
 <p>You need to call the following endpoints to get transfer details. You need to check until transfer status is final status.</p>
 
@@ -2855,6 +3240,313 @@ Correct wallet needs to be send according to country iso code.</p>
 <td>externalFirmRefNo</td>
 <td>string</td>
 <td>External firm reference number</td>
+</tr>
+</tbody></table>
+<h1 id='fields-api'>Fields API</h1>
+<p>Fields API is used to get mandatory fields for money transfer.
+Request for getting mandatory fields changes according to the transfer type. Response is same for all transfer types.</p>
+<h2 id='to-name-fields'>to-name Fields</h2>
+<p>Get mandatory fields for transfer to name</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/mt-api/V2/moneysend/to-name/fields</h6>
+  </div>
+</div>
+
+<blockquote>
+<p><code>POST /mt-api/V2/moneysend/to-name/fields</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneysend/to-name/fields'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'
+Authorization: Bearer {{auth_token}}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"toCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fromCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"toExternalFirmCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='input'>Input</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>true</td>
+<td>Amount to be sent</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>Amount currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
+</tr>
+<tr>
+<td>toCountryCode</td>
+<td>true</td>
+<td>Country code where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+</tr>
+<tr>
+<td>fromCountryCode</td>
+<td>true</td>
+<td>Country code where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+</tr>
+<tr>
+<td>toExternalFirmCode</td>
+<td>true</td>
+<td>External firm code where money will be sent</td>
+</tr>
+</tbody></table>
+<h2 id='to-account-fields'>to-account Fields</h2>
+<p>Get mandatory fields for transfer to account</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/mt-api/V2/moneysend/to-account/fields</h6>
+  </div>
+</div>
+
+<blockquote>
+<p><code>POST /mt-api/V2/moneysend/to-account/fields</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneysend/to-account/fields'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'
+Authorization: Bearer {{auth_token}}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"toCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"toBankId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='input-2'>Input</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>true</td>
+<td>Amount to be sent</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>Amount currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
+</tr>
+<tr>
+<td>toCountryCode</td>
+<td>true</td>
+<td>Country code where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+</tr>
+<tr>
+<td>toBankId</td>
+<td>true</td>
+<td>Bank id where money will be sent</td>
+</tr>
+</tbody></table>
+<h2 id='to-wallet-fields'>to-wallet Fields</h2>
+<p>Get mandatory fields for transfer to wallet</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/mt-api/V2/moneysend/to-wallet/fields</h6>
+  </div>
+</div>
+
+<blockquote>
+<p><code>POST /mt-api/V2/moneysend/to-wallet/fields</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneysend/to-wallet/fields'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'
+Authorization: Bearer {{auth_token}}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"toWalletId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='input-3'>Input</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>true</td>
+<td>Amount to be sent</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>Amount currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
+</tr>
+<tr>
+<td>toWalletId</td>
+<td>true</td>
+<td>Wallet id from (<a href="#wallet-list">Wallet Lisr</a>)  where money will be sent</td>
+</tr>
+</tbody></table>
+<h2 id='to-card-fields'>to-card Fields</h2>
+<p>Get mandatory fields for transfer to card</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/mt-api/V2/moneysend/to-card/fields</h6>
+  </div>
+</div>
+
+<blockquote>
+<p><code>POST /mt-api/V2/moneysend/to-card/fields</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'{{url}}/mt-api/V2/moneysend/to-card/fields'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'
+Authorization: Bearer {{auth_token}}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cardType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"KORTI"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"toCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TJK"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='input-4'>Input</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>true</td>
+<td>Amount to be sent</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>Amount currency in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
+</tr>
+<tr>
+<td>cardType</td>
+<td>true</td>
+<td>Card type</td>
+</tr>
+<tr>
+<td>toCountryCode</td>
+<td>true</td>
+<td>Country code where money will be sent in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso code</td>
+</tr>
+</tbody></table>
+<h2 id='fields-response'>Fields Response</h2>
+<p>Fields response is same for all transfer types. Response includes sender, receiver and common fields for all transfer types.</p>
+
+<aside class="warning">
+  Some fields are mandatory for all transfer types. These are not in the response. You should check transfer type and add these fields to request body.
+</aside>
+
+<blockquote>
+<p><code>POST /mt-api/V2/moneysend/to-name/fields</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"middleName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nationalCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"birthCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityTypeId"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityIssueDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityValidThruDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityIssueCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"addressCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"provinceName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"districtName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"mobileNo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ssnId"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"jobCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"middleName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nationalCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"birthCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityTypeId"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityIssueDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityValidThruDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"identityIssueCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"addressCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"provinceName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"districtName"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"mobileNo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ssnId"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"jobCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"transferCommonInputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"purposeCodeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sourceOfIncomeDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"relationshipWithSender"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"toCityId"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"toOfficeId"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fromCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"toBankId"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"toAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"accountIndicator"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"toWalletId"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sender</td>
+<td>object</td>
+<td>Sender fields</td>
+</tr>
+<tr>
+<td>receiver</td>
+<td>object</td>
+<td>Receiver fields</td>
+</tr>
+<tr>
+<td>transferCommonInputs</td>
+<td>object</td>
+<td>Common fields for all transfer types</td>
 </tr>
 </tbody></table>
 <h1 id='payment'>Payment</h1>
