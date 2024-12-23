@@ -4456,7 +4456,11 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
-<p>This is person object</p>
+<p>This is person object that is used in the request of transfer</p>
+
+<aside class="warning">
+  Mandatories of some fields may change according to the country / transfertype / external firm.
+</aside>
 <h3 id='person-fields'>Person Fields</h3>
 <table><thead>
 <tr>
@@ -4474,7 +4478,7 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
 </tr>
 <tr>
 <td>middleName</td>
-<td>false</td>
+<td>conditional</td>
 <td>String(50)</td>
 <td>Middle name</td>
 </tr>
@@ -4486,7 +4490,7 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
 </tr>
 <tr>
 <td>fatherName</td>
-<td>false</td>
+<td>conditional</td>
 <td>String(50)</td>
 <td>Father name</td>
 </tr>
@@ -4504,7 +4508,7 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
 </tr>
 <tr>
 <td>birthDateStr</td>
-<td>false</td>
+<td>conditional</td>
 <td>dd.MM.yyyy</td>
 <td>Birth date</td>
 </tr>
@@ -4516,25 +4520,25 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
 </tr>
 <tr>
 <td>address</td>
-<td>false</td>
+<td>conditional</td>
 <td>String(250)</td>
 <td>Address text of Person</td>
 </tr>
 <tr>
 <td>provinceName</td>
-<td>false</td>
+<td>conditional</td>
 <td>String(50)</td>
 <td>Province name</td>
 </tr>
 <tr>
 <td>districtName</td>
-<td>false</td>
+<td>conditional</td>
 <td>String(50)</td>
 <td>District Name of address</td>
 </tr>
 <tr>
 <td>zipCode</td>
-<td>false</td>
+<td>conditional</td>
 <td>String(50)</td>
 <td>Zip code</td>
 </tr>
@@ -4558,7 +4562,7 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
 </tr>
 <tr>
 <td>ssnId</td>
-<td>false</td>
+<td>conditional</td>
 <td>String(11)</td>
 <td>Social security number</td>
 </tr>
@@ -4576,7 +4580,7 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
 </tr>
 <tr>
 <td>identityIssueCountryCode</td>
-<td>false</td>
+<td>conditional</td>
 <td>String(3)</td>
 <td>Identity issue country code in   <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> format iso_code</td>
 </tr>
@@ -4594,7 +4598,7 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
 </tr>
 <tr>
 <td>jobCode</td>
-<td>false</td>
+<td>conditional</td>
 <td>Integer</td>
 <td>Job code</td>
 </tr>
