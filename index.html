@@ -489,6 +489,9 @@
                     <a href="#exchange" class="toc-h2 toc-link" data-title="Exchange">Exchange</a>
                   </li>
                   <li>
+                    <a href="#iban-validation" class="toc-h2 toc-link" data-title="IBAN Validation">IBAN Validation</a>
+                  </li>
+                  <li>
                     <a href="#check-eft-transfer-status" class="toc-h2 toc-link" data-title="Check Eft Transfer Status">Check Eft Transfer Status</a>
                   </li>
                   <li>
@@ -508,6 +511,9 @@
                   </li>
                   <li>
                     <a href="#eft-models" class="toc-h2 toc-link" data-title="EFT Models">EFT Models</a>
+                  </li>
+                  <li>
+                    <a href="#eft-error-codes" class="toc-h2 toc-link" data-title="Eft Error Codes">Eft Error Codes</a>
                   </li>
               </ul>
           </li>
@@ -4792,6 +4798,69 @@ curl <span class="nt">--location</span> <span class="nt">--request</span> GET <s
 <td>status of EFT transfer</td>
 </tr>
 </tbody></table>
+
+<p><br></br>
+<br></br>
+<br></br></p>
+
+<table><thead>
+<tr>
+<th>Http Return Code</th>
+<th>MessageCode</th>
+<th>Your Action</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200 - OK</td>
+<td></td>
+<td>Successfull, order is accepted</td>
+</tr>
+<tr>
+<td>406 – BUSINESS ERROR</td>
+<td>EFT_DEMAND_FROM_EXT_REF_CODE_PREVIOUS_DEMANDS_SENDEND</td>
+<td>This order has already been received by PayPorter. You can query the order to get the latest status. Be sure your demand reference number is unique.</td>
+</tr>
+<tr>
+<td>401 - UNAUTHORIZED</td>
+<td></td>
+<td>Unauthorized, call login and get a valid token. The order has not been accepted. Try again after login.</td>
+</tr>
+<tr>
+<td>429 - TOO MANY REQUESTS</td>
+<td></td>
+<td>Maximum call count in a minute has exceeded. There may be a system error on the caller side. The order has not been accepted. Try again a bit later.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>LOGOUT</td>
+<td>Call login and get a valid token. The order has not been accepted. Try again after login.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>CONCURRENCY_LOGOUT</td>
+<td>While there is one active session, one other login has been activated.The previous login is closed with this error. The order has not been accepted. Try again.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>INVALID_IP_LOGOUT</td>
+<td>Your IP is not accepted. The order has not been accepted. Configuration by PayPorter is neeeded. Contact us.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>UNEXPECTED_SYSTEM_ERROR</td>
+<td>Unhandled exception, send the order again.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>All listed in the document</td>
+<td>Business errors, the order is not accepted. Do not send it again. For more (<a href="#eft-error-codes">EFT Error Codes</a>)</td>
+</tr>
+<tr>
+<td>500</td>
+<td></td>
+<td>Unexpected exception, send the order again.</td>
+</tr>
+</tbody></table>
 <h2 id='exchange'>Exchange</h2>
 <p>This endpoint enables currency conversion between foreign currency and TRY. Users can convert a specified amount of foreign currency to TRY, or vice versa, by providing either the amountForeign (foreign currency amount) or amountTRY (TRY amount). The exchange rate applied in the transaction is also returned in the response. </p>
 
@@ -4920,6 +4989,114 @@ curl <span class="nt">--location</span> <span class="s1">'localhost:8586/eft-api
 <td>Commercial exchange rate is used if true, otherwise the retail rate is used</td>
 </tr>
 </tbody></table>
+<h2 id='iban-validation'>IBAN Validation</h2>
+<p>This endpoint provides IBAN validation. It checks whether given IBAN, currency and account owner name are valid or not.</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/eft-api/V2/validate-iban</h6>
+  </div>
+</div>
+
+<blockquote>
+<p><code>POST /eft-api/V2/validate-iban</code> <strong>request</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">'localhost:8586/eft-api/V2/validate-iban'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer 46078c49-cc86-4644-ae21-4be78357d568'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">Request</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">example:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"iban"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currencyCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='input-3'>Input</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>iban</td>
+<td>true</td>
+<td>string</td>
+<td>IBAN number</td>
+</tr>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>string</td>
+<td>Account owner name</td>
+</tr>
+<tr>
+<td>currencyCode</td>
+<td>true</td>
+<td>string</td>
+<td>Currency code in <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO-4217</a> format</td>
+</tr>
+</tbody></table>
+<h3 id='output-3'>Output</h3>
+<blockquote>
+<p><code>POST /eft-api/V2/validate-iban</code> <strong>response</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"messageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATION_DONE_SUCCESSFUL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"responseObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ER*** AC***"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>If IBAN is valid and matches with given name and currency, it returns masked name of the account owner.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Account owner masked name</td>
+</tr>
+</tbody></table>
+
+<p>If Iban is not valid or does not match with given name and currency, it returns messageCodes below.</p>
+
+<table><thead>
+<tr>
+<th>MessageCode</th>
+<th>Your Action</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EFT_IBAN_CHECK_FAILED</td>
+<td>IBAN is not valid.</td>
+</tr>
+<tr>
+<td>EFT_IBAN_CHECK_CURRENCY_NOT_MATCH</td>
+<td>IBAN currency does not match with given currency.</td>
+</tr>
+<tr>
+<td>EFT_IBAN_CHECK_NAME_NOT_MATCH</td>
+<td>IBAN name does not match with given name.</td>
+</tr>
+<tr>
+<td>EFT_IBAN_CHECK_SYSTEM_ERROR</td>
+<td>Unknow error.</td>
+</tr>
+</tbody></table>
 <h2 id='check-eft-transfer-status'>Check Eft Transfer Status</h2>
 <p>There is two endpoints for check EFT transfer status. One of them is for check EFT transfer status by transfer order reference id and the other one is for check EFT transfer status by external firm reference id.</p>
 
@@ -4962,7 +5139,7 @@ curl <span class="nt">--location</span> <span class="s1">'localhost:8586/eft-api
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='output-3'>Output</h3>
+</span></code></pre></div><h3 id='output-4'>Output</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5132,7 +5309,7 @@ curl <span class="nt">--location</span> <span class="s1">'localhost:8586/eft-api
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h4 id='output-4'>Output</h4>
+</span></code></pre></div><h4 id='output-5'>Output</h4>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5310,7 +5487,7 @@ curl <span class="nt">--location</span> <span class="s1">'localhost:8586/eft-api
 <td>status code filter for transfers</td>
 </tr>
 </tbody></table>
-<h4 id='output-5'>Output</h4>
+<h4 id='output-6'>Output</h4>
 <blockquote>
 <p><code>POST /eft-api/V2/transfer/get-transfer-list</code> <strong>response</strong></p>
 </blockquote>
@@ -5502,7 +5679,7 @@ Authorization: Bearer {{auth_token}}'</span>
   </span><span class="nl">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-18T06:26:10.274Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-18T06:26:10.274Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='output-6'>Output</h4>
+</span></code></pre></div><h4 id='output-7'>Output</h4>
 <blockquote>
 <p><code>POST /eft-api/V2/transfer/get-refund-transfer-list</code> <strong>response</strong></p>
 </blockquote>
@@ -5998,7 +6175,7 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>Financial</td>
 </tr>
 </tbody></table>
-<h3 id='eft-error-codes'>Eft Error Codes</h3>
+<h2 id='eft-error-codes'>Eft Error Codes</h2>
 <aside class="warning">
   <strong>COMMAND_EXCEPTION</strong> :  When these kind of errors received, the orders need to be checked by consumer.  Just query the order. If it’s been received by PayPorter then you get it in the response list. You do not need to send it again. If it’s not existing on PayPorter System, then you can resend the order with the same reference number.
 </aside>
@@ -6022,8 +6199,12 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>Successfull</td>
 </tr>
 <tr>
+<td>EFT_DEMAND_FROM_EXT_REF_CODE_PREVIOUS_DEMANDS_SENDEND</td>
+<td>This order has already been received by PayPorter. You can query the order to get the latest status. Be sure your demand reference number is unique.</td>
+</tr>
+<tr>
 <td>CONCURRENCY_LOGOUT</td>
-<td>While there is one active session, one other login has been activated.The previous login is closed with this error.</td>
+<td>While there is one active session, one other login has been activated.The previous login is closed with this error. Try again.</td>
 </tr>
 <tr>
 <td>DATE_RANGE_EXCEEDED</td>
@@ -6038,27 +6219,27 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>The session is not active. Call login to get a fresh token.</td>
 </tr>
 <tr>
-<td><strong>EFT_EXCHANGE_ID_NOT_ALLOWED</strong></td>
+<td>EFT_EXCHANGE_ID_NOT_ALLOWED</td>
 <td>ExchangeId is not allowed for TRY transfer</td>
 </tr>
 <tr>
-<td><strong>EFT_EXCHANGE_ID_REQUIRED</strong></td>
+<td>EFT_EXCHANGE_ID_REQUIRED</td>
 <td>ExchangeId is required for foreign currency transfer</td>
 </tr>
 <tr>
-<td><strong>EFT_EXCHANGE_NOT_FOUND</strong></td>
+<td>EFT_EXCHANGE_NOT_FOUND</td>
 <td>ExchangeId is wrong or expired</td>
 </tr>
 <tr>
-<td><strong>EFT_EXCHANGE_TYPE_NOT_MATCH</strong></td>
+<td>EFT_EXCHANGE_TYPE_NOT_MATCH</td>
 <td>ExchangeId and transfer commercial value has to be same</td>
 </tr>
 <tr>
-<td><strong>EFT_EXCHANGE_AMOUNT_NOT_MATCH</strong></td>
+<td>EFT_EXCHANGE_AMOUNT_NOT_MATCH</td>
 <td>Exchange amoun and transfer amount has to be same</td>
 </tr>
 <tr>
-<td><strong>EFT_EXCHANGE_FEC_CODE_NOT_MATCH</strong></td>
+<td>EFT_EXCHANGE_FEC_CODE_NOT_MATCH</td>
 <td>Exchange currency and transfer currency has to be same</td>
 </tr>
 <tr>
@@ -6080,10 +6261,6 @@ Authorization: Bearer {{auth_token}}'</span>
 <tr>
 <td>UNAUTHORIZED_QUERY_FOR_ACCOUNT_NUMBER</td>
 <td>The account can not be queried by this token holder.</td>
-</tr>
-<tr>
-<td>EFT_DEMAND_FROM_EXT_REF_CODE_PREVIOUS_DEMANDS_SENDEND</td>
-<td>this order has already been received by PayPorter. You can query the order to get the latest status. Be sure your demand reference number is unique.</td>
 </tr>
 <tr>
 <td>EFT_API_FEC_INFO_MUST_HAVE_VALUE</td>
