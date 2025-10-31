@@ -2621,6 +2621,10 @@ Correct wallet needs to be send according to country iso code.</p>
 <h1 id='transfer-to-card'>Transfer to Card</h1>
 <p>This section describes the endpoints for transfer to card. </p>
 <h2 id='card-list'>Card List</h2>
+<aside class="warning">
+  Deprecated: This endpoint is deprecated. No need to use it anymore.
+</aside>
+
 <p>Returns list of all valid card types. It contains send currency information for each card type.</p>
 
 <div class="api-endpoint">
@@ -2781,7 +2785,7 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>cardType</td>
 <td>true</td>
 <td>string</td>
-<td>Card type id from (<a href="#card-list">Card Type List</a>)</td>
+<td>@Deprecated. Card type id from (<a href="#card-list">Card Type List</a>)</td>
 </tr>
 <tr>
 <td>cardNumber</td>
@@ -3315,6 +3319,26 @@ Authorization: Bearer {{auth_token}}'</span>
 <td>500</td>
 <td></td>
 <td>Unexpected exception, send the order again.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>MT_SEND_TRANSFER_NOT_FOUND</td>
+<td>The transaction queried is not on PayPorter system. Check date time filters you send. You can omit date filter if you send reference number.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>AML_STATUS_BLOCKED</td>
+<td>The transaction is blocked by AML rules.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>OPERATION_INFO_ID_NOT_FOUND</td>
+<td>Fill or correct the operation info id in the header.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>MONEY_TRANSFER_SEND_EXTERNAL_FIRM_SERVICE_ERROR</td>
+<td>The beneficiary partner general system error.</td>
 </tr>
 </tbody></table>
 <h1 id='fields-api'>Fields API</h1>
