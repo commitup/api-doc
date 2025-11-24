@@ -1061,6 +1061,158 @@
 							]
 						},
 						{
+							"name": "get-transfer-detail by Api Txn",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"operation-id\", responseHeaders[\"operation-id\"]);"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "externalfirm-user-code",
+										"value": "{{userCode}}",
+										"disabled": true
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-EN"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/mt-api/V2/moneysend/detail-by-api-txn?txnId=fc42d830-2f0d-4bc8-91bb-22c62430619b",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"mt-api",
+										"V2",
+										"moneysend",
+										"detail-by-api-txn"
+									],
+									"query": [
+										{
+											"key": "txnId",
+											"value": "fc42d830-2f0d-4bc8-91bb-22c62430619b"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get-transfer-detail",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{access_token}}"
+											},
+											{
+												"key": "externalfirm-user-code",
+												"value": "001",
+												"disabled": true
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-EN"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/mt-api/V2/moneysend/getdetail?processReferenceNo=47001132580",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"mt-api",
+												"V2",
+												"moneysend",
+												"getdetail"
+											],
+											"query": [
+												{
+													"key": "processReferenceNo",
+													"value": "47001132580"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 11 Jun 2024 07:57:14 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "accept-language",
+											"value": "en-EN"
+										},
+										{
+											"key": "x-client-port",
+											"value": "63529"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "x-forwarded-for",
+											"value": "10.212.135.6"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "user-agent",
+											"value": "PostmanRuntime/7.39.0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json;charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"header\": {\n        \"success\": true,\n        \"code\": \"1\",\n        \"message\": \"OPERATION_DONE_SUCCESSFUL\",\n        \"messageCode\": \"OPERATION_DONE_SUCCESSFUL\"\n    },\n    \"responseObject\": {\n        \"sender\": {\n            \"firstName\": \"CABBER\",\n            \"middleName\": null,\n            \"lastName\": \"GRINGO\",\n            \"fatherName\": \"LEYLAK\",\n            \"birthDateStr\": \"01.01.1985\",\n            \"nationalCountryCode\": \"RUS\",\n            \"birthCountryCode\": \"TUR\",\n            \"identityTypeId\": 2,\n            \"identityIssueDateStr\": \"01.01.2005\",\n            \"identityValidThruDateStr\": \"01.01.2055\",\n            \"identityNumber\": \"0987654321\",\n            \"identityIssueCountryCode\": \"TUR\",\n            \"addressCountryCode\": \"TUR\",\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": \"456 PARK AVENUE\",\n            \"mobileCountryCode\": \"TUR\",\n            \"mobileOperatorNo\": \"532\",\n            \"mobileNo\": \"987653210\",\n            \"ssnId\": null,\n            \"customerId\": 0,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"receiver\": {\n            \"firstName\": \"HURRIYET\",\n            \"middleName\": \"YILDIZ\",\n            \"lastName\": \"SENOL\",\n            \"fatherName\": \"CEKDAR\",\n            \"birthDateStr\": null,\n            \"nationalCountryCode\": \"TUR\",\n            \"birthCountryCode\": null,\n            \"identityTypeId\": null,\n            \"identityIssueDateStr\": null,\n            \"identityValidThruDateStr\": null,\n            \"identityNumber\": null,\n            \"identityIssueCountryCode\": \"TUR\",\n            \"addressCountryCode\": null,\n            \"provinceName\": null,\n            \"districtName\": null,\n            \"address\": null,\n            \"mobileCountryCode\": \"TUR\",\n            \"mobileOperatorNo\": \"538\",\n            \"mobileNo\": \"47458754\",\n            \"ssnId\": null,\n            \"customerId\": null,\n            \"jobCode\": null,\n            \"zipCode\": null\n        },\n        \"transferStatusId\": 1,\n        \"transferStatus\": \"Sent\",\n        \"fromExternalFirmName\": \"TESTPAY\",\n        \"toExternalFirmName\": \"PAYPORTER\",\n        \"fromCountryName\": \"TURKEY\",\n        \"toCountryName\": \"TURKEY\",\n        \"processReferenceNo\": 47001132580,\n        \"externalFirmReferenceNo\": \"47001132580\",\n        \"externalFirmReferenceNo2\": null,\n        \"toCityName\": null,\n        \"toOfficeName\": null,\n        \"purposeName\": \"Other Renting\",\n        \"sourceOfIncomeName\": \"Salary / Income\",\n        \"receiverAmount\": 100,\n        \"receiverAmountCurrency\": \"EUR\",\n        \"agentCommisionAmount\": 6,\n        \"agentCommisionCurrency\": \"EUR\",\n        \"sendDate\": \"2024-06-11T10:56:30.965+0300\",\n        \"comment\": \"test\"\n    }\n}"
+								}
+							]
+						},
+						{
 							"name": "update-receiver-info-validate",
 							"event": [
 								{
@@ -2758,7 +2910,7 @@
 									},
 									"status": "OK",
 									"code": 200,
-									"_postman_previewlanguage": "",
+									"_postman_previewlanguage": null,
 									"header": [
 										{
 											"key": "Date",
@@ -3119,7 +3271,7 @@
 									},
 									"status": "OK",
 									"code": 200,
-									"_postman_previewlanguage": "",
+									"_postman_previewlanguage": null,
 									"header": [
 										{
 											"key": "Date",
@@ -3287,7 +3439,7 @@
 									},
 									"status": "OK",
 									"code": 200,
-									"_postman_previewlanguage": "",
+									"_postman_previewlanguage": null,
 									"header": [
 										{
 											"key": "Date",
@@ -3455,7 +3607,7 @@
 									},
 									"status": "OK",
 									"code": 200,
-									"_postman_previewlanguage": "",
+									"_postman_previewlanguage": null,
 									"header": [
 										{
 											"key": "Date",
@@ -5923,6 +6075,108 @@
 								"V2",
 								"transfer",
 								"get-refund-transfer-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exchange",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// JSON response'ı parse ediyoruz",
+									"var jsonData = pm.response.json();",
+									"",
+									"// exchangeId'yi environment değişkenine atıyoruz",
+									"pm.environment.set(\"exchangeId\", jsonData.responseObject.exchangeId);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n   \"amountForeign\": 2.635,\n   \"currencyForeign\": \"USD\",\n   \"amountTRY\": null,\n   \"commercial\": false\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/exchange",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"exchange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iban-validation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// JSON response'ı parse ediyoruz",
+									"var jsonData = pm.response.json();",
+									"",
+									"// exchangeId'yi environment değişkenine atıyoruz",
+									"pm.environment.set(\"exchangeId\", jsonData.responseObject.exchangeId);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"iban\" : \"TR560006200139600009090751\",\n    \"name\" : \"ZEYNEP DOGAN\",\n    \"currencyCode\" : \"TRY\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eft-api/V2/validate-iban",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eft-api",
+								"V2",
+								"validate-iban"
 							]
 						}
 					},
